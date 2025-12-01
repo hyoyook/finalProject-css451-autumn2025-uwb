@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// Partial class for CueStickController - Hierarchy node selection and manipulation
+///  EXPERIMENTAL Partial class for CueStickController - Hierarchy node selection and manipulation
 /// 
 /// Automatically discovers all SceneNodes in the hierarchy and allows
 /// different keybinds to control different nodes.

@@ -47,7 +47,7 @@ public partial class CueStickController
     /// </summary>
     private void UpdateShot()
     {
-        // Get the deepest node from hierarchy system
+        // Get the deepest node (Cue stick) from hierarchy system
         SceneNode drawNode = GetDeepestNode();
 
         if (drawNode == null || CueTip == null || CueBallTarget == null)
@@ -263,7 +263,7 @@ public partial class CueStickController
     }
 
     /// <summary>
-    /// Reset shot state (useful for repositioning)
+    /// Reset shot state (return node to original position)
     /// </summary>
     public void ResetShot()
     {
@@ -275,7 +275,7 @@ public partial class CueStickController
         }
     }
 
-    // Public accessors
+    // Public getters
     public float CurrentDrawDistance => currentDrawDistance;
     public float ChargedPower => chargedPower;
     public bool IsCharging => isCharging;

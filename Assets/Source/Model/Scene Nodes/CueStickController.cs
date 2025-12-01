@@ -148,10 +148,6 @@ public partial class CueStickController : MonoBehaviour
         // Apply pitch rotation with clamping
         currentPitch += pitchInput * PitchSpeed * Time.deltaTime;
         currentPitch = Mathf.Clamp(currentPitch, MinPitchAngle, MaxPitchAngle);
-
-
-
-
     }
 
     /// <summary>
@@ -207,7 +203,7 @@ public partial class CueStickController : MonoBehaviour
 
         // We want -right (negative X) to point at the ball
         // So we need forward to be perpendicular to that direction
-        // Right = -directionToTarget, so Forward = cross(Up, Right) = cross(Up, -directionToTarget)
+        // Right = -directionToTarget, so Forward = cross(Up, Right) = cross(Up, directionToTarget)
         Vector3 desiredRight = directionToTarget;
         Vector3 desiredUp = Vector3.up;
         Vector3 desiredForward = Vector3.Cross(desiredUp, desiredRight).normalized;
@@ -241,9 +237,9 @@ public partial class CueStickController : MonoBehaviour
         // Debug: Verify hierarchy is being updated
         if (Keyboard.current != null && Keyboard.current.f1Key.wasPressedThisFrame)
         {
-            // Debug.Log("=== SceneNode Hierarchy Debug ===");
-            // Debug.Log($"Root Position: {CueHierarchy.transform.position}");
-            // Debug.Log($"Root Rotation: {CueHierarchy.transform.rotation.eulerAngles}");
+            Debug.Log("=== SceneNode Hierarchy Debug ===");
+            Debug.Log($"Root Position: {CueHierarchy.transform.position}");
+            Debug.Log($"Root Rotation: {CueHierarchy.transform.rotation.eulerAngles}");
             DebugPrintHierarchy(CueHierarchy, 0);
         }
     }
@@ -254,10 +250,10 @@ public partial class CueStickController : MonoBehaviour
     private void DebugPrintHierarchy(SceneNode node, int depth)
     {
         string indent = new string('-', depth * 2);
-        // Debug.Log($"{indent} SceneNode: {node.name}");
-        // Debug.Log($"{indent}   NodeOrigin: {node.NodeOrigin}");
-        // Debug.Log($"{indent}   LocalPos: {node.transform.localPosition}");
-        // Debug.Log($"{indent}   LocalRot: {node.transform.localRotation.eulerAngles}");
+        Debug.Log($"{indent} SceneNode: {node.name}");
+        Debug.Log($"{indent}   NodeOrigin: {node.NodeOrigin}");
+        Debug.Log($"{indent}   LocalPos: {node.transform.localPosition}");
+        Debug.Log($"{indent}   LocalRot: {node.transform.localRotation.eulerAngles}");
 
         // Print primitives
         if (node.PrimitiveList != null)
@@ -292,7 +288,7 @@ public partial class CueStickController : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets the orbit angles directly (useful for resetting or scripted movements)
+    /// Sets the orbit angles directly (for resetting scripted movements)
     /// </summary>
     public void SetOrbitAngles(float yaw, float pitch)
     {

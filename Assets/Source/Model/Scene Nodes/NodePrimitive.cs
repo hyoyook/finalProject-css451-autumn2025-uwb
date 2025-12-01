@@ -27,41 +27,11 @@ public class NodePrimitive : MonoBehaviour
         Matrix4x4 trs = Matrix4x4.TRS(transform.localPosition, transform.localRotation, transform.localScale);
         Matrix4x4 m = nodeMatrix * p * trs * invp;
 
-        if (UseStandardTransform)
-        {
-            // Apply transform directly to GameObject - works with ANY shader
-            ApplyMatrixToTransform(m);
-        }
-        else
-        {
-            // Original 451Shader approach
-            GetComponent<Renderer>().material.SetMatrix("MyXformMat", m);
-            GetComponent<Renderer>().material.SetColor("MyColor", MyColor);
-        }
+
+        GetComponent<Renderer>().material.SetMatrix("MyXformMat", m);
+        GetComponent<Renderer>().material.SetColor("MyColor", MyColor);
+
     }
 
-    /// <summary>
-    /// Applies a Matrix4x4 directly to this GameObject's transform.
-    /// This allows any standard shader (URP Lit, Standard, etc.) to work with SceneNodes.
-    /// </summary>
-    private void ApplyMatrixToTransform(Matrix4x4 matrix)
-    {
-        // Extract position from the matrix (4th column)
-        Vector3 position = matrix.GetColumn(3);
 
-        // Extract rotation from the matrix
-        Quaternion rotation = matrix.rotation;
-
-        // Extract scale from the matrix
-        Vector3 scale = new Vector3(
-            matrix.GetColumn(0).magnitude,
-            matrix.GetColumn(1).magnitude,
-            matrix.GetColumn(2).magnitude
-        );
-
-        // Apply to transform (world space)
-        transform.position = position;
-        transform.rotation = rotation;
-        transform.localScale = scale;
-    }
 }

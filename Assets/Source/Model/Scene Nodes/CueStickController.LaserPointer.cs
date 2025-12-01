@@ -62,30 +62,6 @@ public partial class CueStickController
         {
             Debug.DrawRay(cuePosition, cueDirection * OrbitDistance * 2f, LaserLineColor);
         }
-
-        // Try raycast first if ball has a collider
-        Collider ballCollider = CueBallTarget.GetComponent<Collider>();
-        if (ballCollider != null)
-        {
-            Ray ray = new Ray(cuePosition, cueDirection);
-            RaycastHit hit;
-
-            if (ballCollider.Raycast(ray, out hit, OrbitDistance * 2f))
-            {
-                // We hit the ball - show laser pointer at hit point
-                LaserPointer.SetActive(true);
-                LaserPointer.transform.position = hit.point + hit.normal * 0.01f;
-                
-                // Draw line to hit point in green
-                if (ShowLaserDebugLine)
-                {
-                    Debug.DrawLine(cuePosition, hit.point, Color.green);
-                }
-                return;
-            }
-        }
-
-        // Fallback: Use sphere intersection math if no collider or miss
         CalculateLaserPointerMath(cuePosition, cueDirection);
     }
 
