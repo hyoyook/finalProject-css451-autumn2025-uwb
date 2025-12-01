@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3185300577439378416}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.022358572, w: 0.99975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -621,9 +621,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8971935831170217833}
   - component: {fileID: 8822283230220107500}
-  - component: {fileID: 299925527962789685}
   m_Layer: 0
-  m_Name: Pool Cue Space Ship Base
+  m_Name: Pool Cue Space Ship Base 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -638,7 +637,7 @@ Transform:
   m_GameObject: {fileID: 4287537793758461952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.22, y: 0.88, z: 0.03}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -665,26 +664,6 @@ MonoBehaviour:
   - {fileID: 5748620513915668096}
   ChildrenList:
   - {fileID: 1617699296846502134}
---- !u!114 &299925527962789685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4287537793758461952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d38512b21372740a836c687b8c209c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleIK
-  ShoulderNode: {fileID: 1617699296846502134}
-  ElbowNode: {fileID: 2170951832966675021}
-  Target: {fileID: 4643176479628393951}
-  UpperArmLength: 2
-  ForearmLength: 2
-  ElbowBendPositive: 1
-  ForwardAxis: 0
-  UpAxis: 1
 --- !u!1 &4405242603353446129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9174830549361428265}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.6716166, w: 0.74089885}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
