@@ -59,7 +59,7 @@ public partial class CueStickController : MonoBehaviour
         {
             UpdateCuePosition();
         }
-        
+
         // Initialize laser pointer (from partial class)
         LaserPointerStart();
     }
@@ -87,7 +87,7 @@ public partial class CueStickController : MonoBehaviour
 
         // Update the scene node hierarchy
         UpdateHierarchy();
-        
+
         // Update laser pointer position (from partial class)
         UpdateLaserPointer();
     }
@@ -199,13 +199,13 @@ public partial class CueStickController : MonoBehaviour
         Vector3 desiredRight = directionToTarget;
         Vector3 desiredUp = Vector3.up;
         Vector3 desiredForward = Vector3.Cross(desiredUp, desiredRight).normalized;
-        
+
         // Handle case where direction is straight up/down
         if (desiredForward.sqrMagnitude < 0.001f)
         {
             desiredForward = Vector3.forward;
         }
-        
+
         // Recalculate up to ensure orthogonality
         desiredUp = Vector3.Cross(desiredRight, desiredForward).normalized;
 
@@ -225,7 +225,7 @@ public partial class CueStickController : MonoBehaviour
     {
         Matrix4x4 identity = Matrix4x4.identity;
         CueHierarchy.CompositeXform(ref identity);
-        
+
         // Debug: Verify hierarchy is being updated
         if (Keyboard.current != null && Keyboard.current.f1Key.wasPressedThisFrame)
         {
@@ -235,7 +235,7 @@ public partial class CueStickController : MonoBehaviour
             DebugPrintHierarchy(CueHierarchy, 0);
         }
     }
-    
+
     /// <summary>
     /// Recursively prints the SceneNode hierarchy for debugging
     /// </summary>
@@ -246,7 +246,7 @@ public partial class CueStickController : MonoBehaviour
         // Debug.Log($"{indent}   NodeOrigin: {node.NodeOrigin}");
         // Debug.Log($"{indent}   LocalPos: {node.transform.localPosition}");
         // Debug.Log($"{indent}   LocalRot: {node.transform.localRotation.eulerAngles}");
-        
+
         // Print primitives
         if (node.PrimitiveList != null)
         {
@@ -257,7 +257,7 @@ public partial class CueStickController : MonoBehaviour
                     Debug.Log($"{indent}     - {prim.name}");
             }
         }
-        
+
         // Recurse to children
         if (node.ChildrenList != null)
         {
