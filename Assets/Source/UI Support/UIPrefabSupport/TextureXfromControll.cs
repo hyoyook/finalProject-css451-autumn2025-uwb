@@ -25,10 +25,10 @@ public class TextureXfromControl : XfromControl
         S.isOn = false;
         SetToRotation(true);
 
-        if (tableCloth != null && ObjectName != null)
-        {
-            ObjectName.text = "Texture: " + tableCloth.gameObject.name;
-        }
+        //if (tableCloth != null && ObjectName != null)
+        //{
+        //    ObjectName.text = "Texture: " + tableCloth.gameObject.name;
+        //}
     }
 
     #region slide bars initialization

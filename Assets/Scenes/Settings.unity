@@ -2328,7 +2328,7 @@ MonoBehaviour:
   m_MultiSelect: 0
   m_Options:
     m_Options:
-    - m_Text: Default Tablecloth
+    - m_Text: Default Directional
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Option B
@@ -3201,11 +3201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65bca9694f9ce874d9096af130798938, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65bca9694f9ce874d9096af130798938, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65bca9694f9ce874d9096af130798938, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3213,7 +3213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65bca9694f9ce874d9096af130798938, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 65bca9694f9ce874d9096af130798938, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3711,7 +3711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextureDropdown
   dropdown: {fileID: 1550914138}
-  targetRenderer: {fileID: 967567342}
+  targetRenderer: {fileID: 1808937204}
   materials:
   - {fileID: 2100000, guid: 9923071afd3a1a448b7d7b2b495ff546, type: 2}
   - {fileID: 2100000, guid: 241d3340b6f0d7845bb593d9af128e52, type: 2}
@@ -4645,11 +4645,6 @@ PrefabInstance:
 --- !u!4 &967567341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ee08847888e9b545958b64e5917aec7, type: 3}
-  m_PrefabInstance: {fileID: 967567340}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &967567342 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7918335002988649766, guid: 1ee08847888e9b545958b64e5917aec7, type: 3}
   m_PrefabInstance: {fileID: 967567340}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &973313409
@@ -5686,7 +5681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.09411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6085,7 +6080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LightSource: Default'
+  m_text: Default Directional
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8245,6 +8240,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802396833}
   m_CullTransparentMesh: 1
+--- !u!23 &1808937204 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 882129737928793925, guid: 65bca9694f9ce874d9096af130798938, type: 3}
+  m_PrefabInstance: {fileID: 763683906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1819783776
 GameObject:
   m_ObjectHideFlags: 0
