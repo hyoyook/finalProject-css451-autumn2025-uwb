@@ -60,8 +60,14 @@ public partial class CueStickController : MonoBehaviour
             UpdateCuePosition();
         }
 
+        // Initialize hierarchy discovery (from partial class)
+        HierarchyStart();
+
         // Initialize laser pointer (from partial class)
         LaserPointerStart();
+        
+        // Initialize shot system (from partial class)
+        ShotStart();
     }
 
     private void Update()
@@ -88,8 +94,14 @@ public partial class CueStickController : MonoBehaviour
         // Update the scene node hierarchy
         UpdateHierarchy();
 
+        // Update node selection (from partial class)
+        UpdateNodeSelection();
+
         // Update laser pointer position (from partial class)
         UpdateLaserPointer();
+        
+        // Update shot system (from partial class)
+        UpdateShot();
     }
 
     /// <summary>
