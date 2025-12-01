@@ -7,9 +7,6 @@ public class NodePrimitive : MonoBehaviour
     public Color MyColor = new Color(0.1f, 0.1f, 0.2f, 1.0f);
     public Vector3 Pivot;
 
-    [Tooltip("If true, uses standard Unity transforms instead of custom 451Shader. Allows any shader/material to work.")]
-    public bool UseStandardTransform = false;
-
     // Use this for initialization @
     void Start()
     {
