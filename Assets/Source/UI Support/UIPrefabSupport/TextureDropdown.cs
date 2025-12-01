@@ -9,6 +9,13 @@ public class TextureDropdown : MonoBehaviour
 
     void Start()
     {
+        if (targetRenderer == null)
+        {
+            Debug.LogError("[TextureDropdown] Target MeshRenderer reference is missing");
+            return;
+        }
+
+
         dropdown.options.Clear();
         foreach (var mat in materials)
         {
@@ -26,8 +33,12 @@ public class TextureDropdown : MonoBehaviour
     {
         if (index < 0 || index >= materials.Length)
         {
+            Debug.LogError($"[TextureDropdown] Material at index {index} is NULL");
             return;
         }
         targetRenderer.material = materials[index];
+
+        Debug.Log($"[TextureDropdown] Cloth material changed to: {targetRenderer.material.name})");
+
     }
 }
