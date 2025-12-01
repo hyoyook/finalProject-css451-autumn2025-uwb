@@ -7,9 +7,6 @@ public class NodePrimitive : MonoBehaviour
     public Color MyColor = new Color(0.1f, 0.1f, 0.2f, 1.0f);
     public Vector3 Pivot;
 
-    [Tooltip("If true, uses standard Unity transforms instead of custom 451Shader. Allows any shader/material to work.")]
-    public bool UseStandardTransform = false;
-
     // Use this for initialization @
     void Start()
     {
@@ -28,8 +25,14 @@ public class NodePrimitive : MonoBehaviour
         Matrix4x4 m = nodeMatrix * p * trs * invp;
 
 
-        GetComponent<Renderer>().material.SetMatrix("MyXformMat", m);
-        GetComponent<Renderer>().material.SetColor("MyColor", MyColor);
+        // Set matrix on ALL materials, not just the first one
+        Renderer renderer = GetComponent<Renderer>();
+        Material[] mats = renderer.materials;
+        foreach (Material mat in mats)
+        {
+            mat.SetMatrix("MyXformMat", m);
+        }
+        // GetComponent<Renderer>().material.SetColor("MyColor", MyColor);
 
     }
 

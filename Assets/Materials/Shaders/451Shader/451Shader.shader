@@ -3,11 +3,13 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		MyColor ("My Color", Color) = (1, 1, 1, 1)
 	}
 	SubShader
 	{
 		Tags { "RenderType"="Opaque" }
 		LOD 200
+		Cull Off  // Disable backface culling to render both sides
 
 		Pass
 		{
@@ -55,7 +57,7 @@
 			{
 				// sample the texture
 				fixed4 col = tex2D(_MainTex, i.uv);
-				col += MyColor;
+				col *= MyColor;  // Multiply to tint the texture
 				return col;
 			}
 			ENDCG

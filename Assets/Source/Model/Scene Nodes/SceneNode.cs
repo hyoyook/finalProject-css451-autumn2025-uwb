@@ -42,8 +42,19 @@ public class SceneNode : MonoBehaviour
             foreach (SceneNode child in ChildrenList)
             {
                 if (child != null)
+                {
+                    Debug.Log("CompositeXform called on child: " + child.gameObject.name);
                     child.CompositeXform(ref mCombinedParentXform);
+                }
+                else
+                {
+                    Debug.LogError("Child is null in ChildrenList of: " + gameObject.name);
+                }
             }
+        }
+        else
+        {
+            Debug.LogError("ChildrenList is null for: " + gameObject.name);
         }
 
         // disseminate to primitives
@@ -52,8 +63,20 @@ public class SceneNode : MonoBehaviour
             foreach (NodePrimitive p in PrimitiveList)
             {
                 if (p != null)
+                {
+                    Debug.Log($"LoadShaderMatrix called on: {gameObject.name}");
                     p.LoadShaderMatrix(ref mCombinedParentXform);
+                }
+                else
+                {
+                    Debug.LogError("Primitive is null in PrimitiveList of: " + gameObject.name);
+                }
+
             }
+        }
+        else
+        {
+            Debug.LogError("PrimitiveList is null for: " + gameObject.name);
         }
     }
 }
