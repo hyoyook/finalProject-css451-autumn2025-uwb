@@ -10,7 +10,7 @@ public class TextureXfromControl : XfromControl
     private Vector3 mScale     = Vector3.one;   // only X,Y used
     private Vector3 mRotate    = Vector3.zero;  // only Z used (degrees)
 
-    new void Start()
+    void Start()
     {
         T.onValueChanged.AddListener(SetToTranslation);
         R.onValueChanged.AddListener(SetToRotation);
