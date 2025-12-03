@@ -10,7 +10,7 @@ public class TextureXfromControl : XfromControl
     private Vector3 mScale     = Vector3.one;   // only X,Y used
     private Vector3 mRotate    = Vector3.zero;  // only Z used (degrees)
 
-    new void Start()
+    void Start()
     {
         T.onValueChanged.AddListener(SetToTranslation);
         R.onValueChanged.AddListener(SetToRotation);
@@ -25,10 +25,10 @@ public class TextureXfromControl : XfromControl
         S.isOn = false;
         SetToRotation(true);
 
-        if (tableCloth != null && ObjectName != null)
-        {
-            ObjectName.text = "Texture: " + tableCloth.gameObject.name;
-        }
+        //if (tableCloth != null && ObjectName != null)
+        //{
+        //    ObjectName.text = "Texture: " + tableCloth.gameObject.name;
+        //}
     }
 
     #region slide bars initialization
