@@ -22,23 +22,8 @@ public partial class TexturePlacement : MonoBehaviour
 
         // cache original UVs from the table
         baseUV = mMesh.uv;
-
-        if (baseUV == null || baseUV.Length == 0)
-        {
-            Debug.LogError("[TexturePlacement] Mesh has no UVs to work with on " + name + ". Generating planner UVs");
-
-            // generate UVs
-            Vector3[] v = mMesh.vertices;
-            Vector2[] planarUV = GeneratePlanarUVs(v);
-
-            // assign to mesh
-            mMesh.uv = planarUV;
-            baseUV = (Vector2[])planarUV.Clone();
-        }
-        else
-        {
-            baseUV = (Vector2[])baseUV.Clone();
-        }
+        baseUV = (Vector2[])baseUV.Clone();
+       
     }
 
     private void LateUpdate()
