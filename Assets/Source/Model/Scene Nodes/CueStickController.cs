@@ -45,12 +45,24 @@ public partial class CueStickController : MonoBehaviour
     [Tooltip("Maximum cue pitch angle")]
     public float MaxCuePitch = 45.0f;
 
+    [Tooltip("Speed of cue stick yaw adjustment (left/right aim)")]
+    public float CueYawSpeed = 30.0f;
+
+    [Tooltip("Minimum cue yaw angle")]
+    public float MinCueYaw = -45.0f;
+
+    [Tooltip("Maximum cue yaw angle")]
+    public float MaxCueYaw = 45.0f;
+
     // Current orbit angles
     private float currentYaw = 0.0f;
     private float currentPitch = 20.0f;
 
     // Current cue stick pitch (in-place rotation)
     private float currentCuePitch = 0.0f;
+    
+    // Current cue stick yaw (in-place rotation for left/right aim)
+    private float currentCueYaw = 0.0f;
 
     private void Start()
     {
@@ -151,7 +163,7 @@ public partial class CueStickController : MonoBehaviour
     }
 
     /// <summary>
-    /// Handles CTRL + WASD input for pitching the cue stick in place
+    /// Handles CTRL + WASD input for aiming the cue stick in place
     /// </summary>
     private void HandleCuePitchInput()
     {
@@ -160,8 +172,9 @@ public partial class CueStickController : MonoBehaviour
             return;
 
         float pitchInput = 0.0f;
+        float yawInput = 0.0f;
 
-        // W/S for cue pitch adjustment
+        // W/S for cue pitch adjustment (up/down)
         if (Keyboard.current.wKey.isPressed)
         {
             // Debug.Log("W Key Pressed for Cue Pitch");
@@ -173,9 +186,25 @@ public partial class CueStickController : MonoBehaviour
             pitchInput = -1.0f;
         }
 
+        // A/D for cue yaw adjustment (left/right)
+        if (Keyboard.current.aKey.isPressed)
+        {
+            // Debug.Log("A Key Pressed for Cue Yaw");
+            yawInput = -1.0f;
+        }
+        else if (Keyboard.current.dKey.isPressed)
+        {
+            // Debug.Log("D Key Pressed for Cue Yaw");
+            yawInput = 1.0f;
+        }
+
         // Apply cue pitch with clamping
         currentCuePitch += pitchInput * CuePitchSpeed * Time.deltaTime;
         currentCuePitch = Mathf.Clamp(currentCuePitch, MinCuePitch, MaxCuePitch);
+
+        // Apply cue yaw with clamping
+        currentCueYaw += yawInput * CueYawSpeed * Time.deltaTime;
+        currentCueYaw = Mathf.Clamp(currentCueYaw, MinCueYaw, MaxCueYaw);
     }
 
     /// <summary>
@@ -223,13 +252,18 @@ public partial class CueStickController : MonoBehaviour
         // Apply ONLY the orbit rotation to the root hierarchy
         CueHierarchy.transform.rotation = baseRotation;
 
-        // Apply the cue pitch to the deepest node (hand/cue), not the shoulder
+        // Apply the cue aim adjustments to the deepest node (hand/cue), not the shoulder
         SceneNode handNode = GetDeepestNode();
         if (handNode != null)
         {
-            // Apply pitch rotation around the local forward axis
+            // Apply yaw (left/right) rotation around the local up axis
+            Quaternion cueYawRotation = Quaternion.AngleAxis(currentCueYaw, Vector3.up);
+            
+            // Apply pitch (up/down) rotation around the local forward axis
             Quaternion cuePitchRotation = Quaternion.AngleAxis(currentCuePitch, Vector3.forward);
-            handNode.transform.localRotation = cuePitchRotation;
+            
+            // Combine rotations: yaw first, then pitch
+            handNode.transform.localRotation = cueYawRotation * cuePitchRotation;
         }
     }
 
@@ -312,6 +346,14 @@ public partial class CueStickController : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets the cue yaw angle directly
+    /// </summary>
+    public void SetCueYaw(float yaw)
+    {
+        currentCueYaw = Mathf.Clamp(yaw, MinCueYaw, MaxCueYaw);
+    }
+
+    /// <summary>
     /// Resets all angles to default values
     /// </summary>
     public void ResetAngles()
@@ -319,6 +361,7 @@ public partial class CueStickController : MonoBehaviour
         currentYaw = 0.0f;
         currentPitch = 20.0f;
         currentCuePitch = 0.0f;
+        currentCueYaw = 0.0f;
     }
 
     /// <summary>
@@ -347,4 +390,9 @@ public partial class CueStickController : MonoBehaviour
     /// Gets the current cue pitch angle
     /// </summary>
     public float GetCurrentCuePitch() => currentCuePitch;
+
+    /// <summary>
+    /// Gets the current cue yaw angle
+    /// </summary>
+    public float GetCurrentCueYaw() => currentCueYaw;
 }
