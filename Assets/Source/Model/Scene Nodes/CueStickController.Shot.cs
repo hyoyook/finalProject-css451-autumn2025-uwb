@@ -31,6 +31,7 @@ public partial class CueStickController
     private bool isStriking = false;
     private bool hasHitBall = false; // Track if we've hit the ball during strike
     private Vector3 originalNodePosition;
+    private Quaternion originalNodeRotation; // Store original rotation too
     private bool hasStoredOriginalPosition = false;
 
     /// <summary>
@@ -53,16 +54,23 @@ public partial class CueStickController
         if (drawNode == null || CueTip == null || CueBallTarget == null)
             return;
 
-        // Store original position on first frame
-        if (!hasStoredOriginalPosition)
+        // Store original position and rotation when not in use
+        if (!hasStoredOriginalPosition && !isCharging && !isStriking)
         {
             originalNodePosition = drawNode.transform.localPosition;
+            originalNodeRotation = drawNode.transform.localRotation;
             hasStoredOriginalPosition = true;
 
             if (ShowHierarchyDebug)
             {
                 Debug.Log($"Shot system using node: {drawNode.name}");
             }
+        }
+        
+        // Update stored rotation whenever we're not charging/striking (allows aiming adjustments)
+        if (!isCharging && !isStriking)
+        {
+            originalNodeRotation = drawNode.transform.localRotation;
         }
 
         if (Keyboard.current == null)
@@ -100,9 +108,14 @@ public partial class CueStickController
         // Calculate power based on draw distance
         chargedPower = (currentDrawDistance / MaxDrawDistance) * PowerMultiplier;
 
-        // Move node backward along the draw axis
-        Vector3 drawOffset = DrawAxis.normalized * currentDrawDistance;
+        // Calculate draw direction in local space, accounting for the node's rotation
+        // The draw axis is rotated by the stored rotation (which includes yaw/pitch adjustments)
+        Vector3 rotatedDrawAxis = originalNodeRotation * DrawAxis.normalized;
+        Vector3 drawOffset = rotatedDrawAxis * currentDrawDistance;
+        
+        // Apply position offset and maintain rotation
         drawNode.transform.localPosition = originalNodePosition + drawOffset;
+        drawNode.transform.localRotation = originalNodeRotation;
 
         // Debug
         if (ShowHierarchyDebug)
@@ -134,9 +147,13 @@ public partial class CueStickController
             // Continue moving past original position (into negative draw distance) if needed
             currentDrawDistance -= StrikeSpeed * Time.deltaTime;
 
-            // Update node position (works for both positive and negative draw distances)
-            Vector3 drawOffset = DrawAxis.normalized * currentDrawDistance;
+            // Calculate draw direction in local space, accounting for the node's rotation
+            Vector3 rotatedDrawAxis = originalNodeRotation * DrawAxis.normalized;
+            Vector3 drawOffset = rotatedDrawAxis * currentDrawDistance;
+            
+            // Update node position and maintain rotation
             drawNode.transform.localPosition = originalNodePosition + drawOffset;
+            drawNode.transform.localRotation = originalNodeRotation;
 
             // Check for collision with cue ball
             if (CheckCueBallHit())
@@ -181,14 +198,19 @@ public partial class CueStickController
             currentDrawDistance = Mathf.Max(currentDrawDistance, 0); // Don't overshoot
         }
 
-        // Update position
-        Vector3 drawOffset = DrawAxis.normalized * currentDrawDistance;
+        // Calculate draw direction in local space, accounting for the node's rotation
+        Vector3 rotatedDrawAxis = originalNodeRotation * DrawAxis.normalized;
+        Vector3 drawOffset = rotatedDrawAxis * currentDrawDistance;
+        
+        // Update position and maintain rotation
         drawNode.transform.localPosition = originalNodePosition + drawOffset;
+        drawNode.transform.localRotation = originalNodeRotation;
 
         // Check if we're back at original position
         if (Mathf.Approximately(currentDrawDistance, 0))
         {
             drawNode.transform.localPosition = originalNodePosition;
+            drawNode.transform.localRotation = originalNodeRotation;
             EndStrike(drawNode);
         }
     }
@@ -272,6 +294,7 @@ public partial class CueStickController
         {
             EndStrike(drawNode);
             originalNodePosition = drawNode.transform.localPosition;
+            originalNodeRotation = drawNode.transform.localRotation;
         }
     }
 
