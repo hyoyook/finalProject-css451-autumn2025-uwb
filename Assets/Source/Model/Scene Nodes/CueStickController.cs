@@ -217,13 +217,20 @@ public partial class CueStickController : MonoBehaviour
         // Recalculate up to ensure orthogonality
         desiredUp = Vector3.Cross(desiredRight, desiredForward).normalized;
 
-        // Create rotation from the three axes
+        // Create rotation from the three axes (orbit rotation only)
         Quaternion baseRotation = Quaternion.LookRotation(desiredForward, desiredUp);
 
-        // Apply the in-place cue pitch adjustment (rotate around local forward axis)
-        Quaternion cuePitchRotation = Quaternion.AngleAxis(currentCuePitch, Vector3.forward);
+        // Apply ONLY the orbit rotation to the root hierarchy
+        CueHierarchy.transform.rotation = baseRotation;
 
-        CueHierarchy.transform.rotation = baseRotation * cuePitchRotation;
+        // Apply the cue pitch to the deepest node (hand/cue), not the shoulder
+        SceneNode handNode = GetDeepestNode();
+        if (handNode != null)
+        {
+            // Apply pitch rotation around the local forward axis
+            Quaternion cuePitchRotation = Quaternion.AngleAxis(currentCuePitch, Vector3.forward);
+            handNode.transform.localRotation = cuePitchRotation;
+        }
     }
 
     /// <summary>
