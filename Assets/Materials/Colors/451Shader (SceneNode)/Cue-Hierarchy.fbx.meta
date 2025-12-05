@@ -1,13 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-guid: 65bca9694f9ce874d9096af130798938
-=======
-guid: f3575239bed38a34698323b7375d211f
->>>>>>> 98fec644b4146b014b83dc7d0206d4ddf2254bc1
-=======
-guid: f3575239bed38a34698323b7375d211f
->>>>>>> Alec/Feat/Scene-Node-Hierarchy-Insanity
+guid: e7458f926e840fe4d99f940caac622f3
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -38,15 +30,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-<<<<<<< HEAD
-<<<<<<< HEAD
-    isReadable: 1
-=======
     isReadable: 0
->>>>>>> 98fec644b4146b014b83dc7d0206d4ddf2254bc1
-=======
-    isReadable: 0
->>>>>>> Alec/Feat/Scene-Node-Hierarchy-Insanity
   meshes:
     lODScreenPercentages: []
     globalScale: 1
