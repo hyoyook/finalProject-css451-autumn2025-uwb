@@ -749,15 +749,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.25
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7313,7 +7313,7 @@ MonoBehaviour:
   MaxDrawDistance: 2
   DrawSpeed: 3
   StrikeSpeed: 15
-  PowerMultiplier: 5
+  PowerMultiplier: 10
   DrawAxis: {x: 1, y: 0, z: 0}
 --- !u!4 &878432766
 Transform:
@@ -11104,6 +11104,7 @@ GameObject:
   - component: {fileID: 1454358710}
   - component: {fileID: 1454358709}
   - component: {fileID: 1454358713}
+  - component: {fileID: 1454358714}
   m_Layer: 8
   m_Name: Cue Ball
   m_TagString: CueBall
@@ -11230,6 +11231,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1454358714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454358708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallOutOfBounds
+  OutOfBoundsTrigger: {fileID: 0}
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 1158418199}
+  HeightAboveTable: 0.15
+  FreezeOnReturn: 0
+  FlashOnReturn: 1
+  FlashDuration: 0.5
 --- !u!1 &1501471289
 GameObject:
   m_ObjectHideFlags: 0
@@ -15158,7 +15178,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.49999997}
   m_LocalPosition: {x: 0.1, y: -0.3183327, z: 0.0011001527}
-  m_LocalScale: {x: 3.275597, y: 3.275597, z: 296.81848}
+  m_LocalScale: {x: 3.275597, y: 3.275597, z: 380.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5480513140686371708}
@@ -15207,7 +15227,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.18209276, y: -0.10717228, z: 0.0011000633}
   m_LocalScale: {x: 3.260624, y: 2.793579, z: 21.877985}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3524291384704425220}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
