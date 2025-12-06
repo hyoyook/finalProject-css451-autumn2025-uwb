@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 /// Controls:
 /// - WASD: Yaw and Pitch orbiting around the cue ball
 /// - CTRL + WASD: Pitch and Yaw the cue stick in place (adjust angle of attack)
+/// - Left Click: Select objects tagged as "Selectable" to make them the new target
 /// </summary>
 public partial class CueStickController : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public partial class CueStickController : MonoBehaviour
 
     [Tooltip("The target transform to orbit around (cue ball position)")]
     public Transform CueBallTarget;
+
+    [Header("Selectable Settings")]
+    [Tooltip("Tag used to identify selectable/hitable objects")]
+    public string SelectableTag = "Selectable";
+    
+    [Tooltip("Camera to use for raycasting (defaults to main camera)")]
+    public Camera RaycastCamera;
 
     [Header("Orbit Settings")]
     [Tooltip("Distance from the cue ball to orbit at")]
@@ -70,6 +78,12 @@ public partial class CueStickController : MonoBehaviour
 
     private void Start()
     {
+        // Initialize raycast camera
+        if (RaycastCamera == null)
+        {
+            RaycastCamera = Camera.main;
+        }
+
         // SAFETY 1: Get all colliders to disable them during aiming
         if (CueHierarchy != null)
         {
@@ -100,6 +114,9 @@ public partial class CueStickController : MonoBehaviour
     {
         if (CueBallTarget == null || CueHierarchy == null)
             return;
+        
+        // Handle clicking on selectable objects
+        HandleSelectableInput();
         
         // SAFETY 3: Force colliders OFF every frame while aiming
         // This prevents the "Invisible Push" where the stick moves the ball
@@ -420,6 +437,36 @@ public partial class CueStickController : MonoBehaviour
         currentPitch = 20.0f;
         currentCuePitch = 0.0f;
         currentCueYaw = 0.0f;
+    }
+
+    /// <summary>
+    /// Handles mouse input for selecting objects tagged as "Selectable"
+    /// </summary>
+    private void HandleSelectableInput()
+    {
+        // Check for left mouse button click
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            if (RaycastCamera == null)
+                return;
+
+            // Cast a ray from the mouse position
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            Ray ray = RaycastCamera.ScreenPointToRay(mousePos);
+            RaycastHit hit;
+
+            // Perform the raycast
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Check if the hit object has the selectable tag
+                if (hit.collider.CompareTag(SelectableTag))
+                {
+                    // Switch the cue target to this object
+                    CueBallTarget = hit.transform;
+                    Debug.Log($"Cue target switched to: {hit.transform.name}");
+                }
+            }
+        }
     }
 
     /// <summary>
