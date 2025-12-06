@@ -749,15 +749,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7313,7 +7313,7 @@ MonoBehaviour:
   MaxDrawDistance: 2
   DrawSpeed: 3
   StrikeSpeed: 15
-  PowerMultiplier: 10
+  PowerMultiplier: 5
   DrawAxis: {x: 1, y: 0, z: 0}
 --- !u!4 &878432766
 Transform:
@@ -9859,7 +9859,7 @@ Transform:
   m_GameObject: {fileID: 1218383964}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0.84}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
