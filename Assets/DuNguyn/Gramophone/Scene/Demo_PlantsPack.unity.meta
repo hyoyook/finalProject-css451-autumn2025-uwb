@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 01f994926e6f1114993a2eabae59d9b2
+timeCreated: 1456755102
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 304065
+  packageName: Gramophone Record Player
+  packageVersion: 0.0.1
+  assetPath: Assets/DuNguyn/Gramophone/Scene/Demo_PlantsPack.unity
+  uploadId: 713374

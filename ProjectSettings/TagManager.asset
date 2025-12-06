@@ -7,6 +7,7 @@ TagManager:
   - Table
   - CueBall
   - CueStick
+  - Tag 3 Balls
   layers:
   - Default
   - TransparentFX
