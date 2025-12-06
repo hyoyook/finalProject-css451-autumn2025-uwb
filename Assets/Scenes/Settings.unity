@@ -11243,11 +11243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallOutOfBounds
-  OutOfBoundsTrigger: {fileID: 0}
+  OutOfBoundsY: 0.5
   ReturnPosition: {x: 0, y: 2.147, z: 2}
   Table: {fileID: 1158418199}
   HeightAboveTable: 0.15
-  FreezeOnReturn: 0
+  FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
 --- !u!1 &1501471289
