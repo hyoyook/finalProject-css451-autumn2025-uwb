@@ -5,12 +5,11 @@ public class BallSound : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip ballHitSound;
-    public float minImpactForce = 0.1f;
-    public float maxVolumeForce = 5f;
+    public float minImpactForce = 0.02f; // ignore tiny collisions eg. with tablecloth
+    public float maxVolumeForce = 20f;  // maxing here so it does not blast 
 
 
     // source: https://learn.unity.com/course/beginning-audio-in-unity/tutorial/sound-effects-scripting-1?version=2019.4#5f4f75b6edbc2a034289e2f6
-
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
