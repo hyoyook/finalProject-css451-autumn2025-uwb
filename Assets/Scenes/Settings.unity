@@ -3904,7 +3904,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!21 &553224050
 Material:
   serializedVersion: 8
@@ -6064,7 +6064,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &709537982
 GameObject:
   m_ObjectHideFlags: 0
@@ -7120,7 +7120,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &780177864
 GameObject:
   m_ObjectHideFlags: 0
@@ -10136,7 +10136,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1085247716
 GameObject:
   m_ObjectHideFlags: 0
@@ -10676,7 +10676,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1001 &1111979705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10826,7 +10826,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!4 &1158418199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
@@ -11068,7 +11068,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1197928866
 GameObject:
   m_ObjectHideFlags: 0
@@ -12542,7 +12542,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1394360823
 GameObject:
   m_ObjectHideFlags: 0
@@ -13612,7 +13612,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
-  GravityMultiplier: 1
+  GravityMultiplier: 2
 --- !u!114 &1454358716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15520,7 +15520,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1734769191
 GameObject:
   m_ObjectHideFlags: 0
@@ -15625,7 +15625,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1785889976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5033021387351474078, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
@@ -15689,7 +15689,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1799298952
 GameObject:
   m_ObjectHideFlags: 0
@@ -16496,7 +16496,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1878765502
 GameObject:
   m_ObjectHideFlags: 0
@@ -16647,7 +16647,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!224 &1895016410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5661463879392340456, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -16836,7 +16836,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &1961834694
 GameObject:
   m_ObjectHideFlags: 0
@@ -18152,7 +18152,7 @@ MonoBehaviour:
   AngularDrag: 0.35
   StopVelocityThreshold: 0.05
   StopAngularVelocityThreshold: 0.05
-  GravityMultiplier: 1.5
+  GravityMultiplier: 2
 --- !u!1 &2112587465
 GameObject:
   m_ObjectHideFlags: 0
