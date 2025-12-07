@@ -7,7 +7,7 @@ public class TextureDropdown : MonoBehaviour
     public MeshRenderer targetRenderer;  // the quad renderer
     public Material[]   materials;
 
-    void Start()
+    void Awake()
     {
         if (targetRenderer == null)
         {
