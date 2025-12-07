@@ -11,8 +11,13 @@ public class BallOutOfBounds : MonoBehaviour
     [Tooltip("Below this Y coordinate, ball is out of bounds")]
     public float OutOfBoundsY = 0.5f;
 
-    [Tooltip("If ball touches this collider, it returns to the top of the table (optional)")]
-    public Collider TriggerCollider;
+    [Tooltip("If ball touches any of these colliders, it returns to the top of the table (optional)")]
+    public Collider TriggerCollider1;
+    public Collider TriggerCollider2;
+    public Collider TriggerCollider3;
+    public Collider TriggerCollider4;
+    public Collider TriggerCollider5;
+    public Collider TriggerCollider6;
 
     [Header("Return Settings")]
     [Tooltip("Position to return the ball to (X and Z only if using table, or absolute position)")]
@@ -59,12 +64,12 @@ public class BallOutOfBounds : MonoBehaviour
     }
 
     /// <summary>
-    /// Detect collision with the trigger collider
+    /// Detect collision with the trigger colliders
     /// </summary>
     private void OnCollisionEnter(Collision collision)
     {
-        // Check if we hit the specified trigger collider
-        if (TriggerCollider != null && collision.collider == TriggerCollider)
+        // Check if we hit any of the specified trigger colliders
+        if (IsTriggerCollider(collision.collider))
         {
             Debug.Log($"[BallOutOfBounds] Ball touched trigger collider: {collision.collider.name}");
             ReturnBallToTable();
@@ -76,12 +81,25 @@ public class BallOutOfBounds : MonoBehaviour
     /// </summary>
     private void OnTriggerEnter(Collider other)
     {
-        // Check if we entered the specified trigger collider
-        if (TriggerCollider != null && other == TriggerCollider)
+        // Check if we entered any of the specified trigger colliders
+        if (IsTriggerCollider(other))
         {
             Debug.Log($"[BallOutOfBounds] Ball entered trigger collider: {other.name}");
             ReturnBallToTable();
         }
+    }
+
+    /// <summary>
+    /// Helper method to check if a collider is one of our trigger colliders
+    /// </summary>
+    private bool IsTriggerCollider(Collider collider)
+    {
+        return (TriggerCollider1 != null && collider == TriggerCollider1) ||
+               (TriggerCollider2 != null && collider == TriggerCollider2) ||
+               (TriggerCollider3 != null && collider == TriggerCollider3) ||
+               (TriggerCollider4 != null && collider == TriggerCollider4) ||
+               (TriggerCollider5 != null && collider == TriggerCollider5) ||
+               (TriggerCollider6 != null && collider == TriggerCollider6);
     }
 
     /// <summary>
