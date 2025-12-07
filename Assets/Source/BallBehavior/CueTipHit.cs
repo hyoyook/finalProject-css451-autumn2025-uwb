@@ -3,7 +3,7 @@ using UnityEngine;
 public class CueTipHit : MonoBehaviour
 {
     [Header("Settings")]
-    public float forceMultiplier = 50.0f; // Increased default
+    public float forceMultiplier;
     public float minHitSpeed = 5.0f;      // New: Minimum speed to ensure ball moves
     public string targetTag = "CueBall";
 

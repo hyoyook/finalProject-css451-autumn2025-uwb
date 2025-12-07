@@ -421,6 +421,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6079086602714266180, guid: 640c129b22984884bb11c7ba06d089f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1894093748}
+    - targetCorrespondingSourceObject: {fileID: 6079086602714266180, guid: 640c129b22984884bb11c7ba06d089f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1894093752}
   m_SourcePrefab: {fileID: 100100000, guid: 640c129b22984884bb11c7ba06d089f8, type: 3}
 --- !u!4 &26723064 stripped
 Transform:
@@ -982,14 +985,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 117291222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider1: {fileID: 186448024}
+  TriggerCollider2: {fileID: 1819033041}
+  TriggerCollider3: {fileID: 997499569}
+  TriggerCollider4: {fileID: 573008916}
+  TriggerCollider5: {fileID: 750383682}
+  TriggerCollider6: {fileID: 871114199}
+  ReturnToOriginalPosition: 1
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 0}
+  HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
-  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &140298498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,6 +1518,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 800839063424641009, guid: 734eff4c8e2deff4b9c8269e3be34f9f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2099964873}
+    - targetCorrespondingSourceObject: {fileID: 800839063424641009, guid: 734eff4c8e2deff4b9c8269e3be34f9f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2099964877}
   m_SourcePrefab: {fileID: 100100000, guid: 734eff4c8e2deff4b9c8269e3be34f9f, type: 3}
 --- !u!4 &229400750 stripped
 Transform:
@@ -1714,6 +1729,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3081245940751128763, guid: 676b951fbc11e5f40b9ef951fe4e6507, type: 3}
       insertIndex: -1
       addedObject: {fileID: 542120084}
+    - targetCorrespondingSourceObject: {fileID: 3081245940751128763, guid: 676b951fbc11e5f40b9ef951fe4e6507, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 542120088}
   m_SourcePrefab: {fileID: 100100000, guid: 676b951fbc11e5f40b9ef951fe4e6507, type: 3}
 --- !u!4 &240255908 stripped
 Transform:
@@ -2258,14 +2276,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 272870327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider1: {fileID: 186448024}
+  TriggerCollider2: {fileID: 1819033041}
+  TriggerCollider3: {fileID: 997499569}
+  TriggerCollider4: {fileID: 573008916}
+  TriggerCollider5: {fileID: 750383682}
+  TriggerCollider6: {fileID: 871114199}
+  ReturnToOriginalPosition: 1
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 0}
+  HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
-  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &287780086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,6 +2656,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2693255205413886130, guid: dbde73878edfcac49a79523276ff5c73, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1865351698}
+    - targetCorrespondingSourceObject: {fileID: 2693255205413886130, guid: dbde73878edfcac49a79523276ff5c73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1865351702}
   m_SourcePrefab: {fileID: 100100000, guid: dbde73878edfcac49a79523276ff5c73, type: 3}
 --- !u!4 &335219728 stripped
 Transform:
@@ -2702,14 +2732,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 352612194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider1: {fileID: 186448024}
+  TriggerCollider2: {fileID: 1819033041}
+  TriggerCollider3: {fileID: 997499569}
+  TriggerCollider4: {fileID: 573008916}
+  TriggerCollider5: {fileID: 750383682}
+  TriggerCollider6: {fileID: 871114199}
+  ReturnToOriginalPosition: 1
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 0}
+  HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
-  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &353997499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,6 +3483,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3380755932453576973, guid: 184c2b132da7a7b4287ae9c6b70bd017, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1903313035}
+    - targetCorrespondingSourceObject: {fileID: 3380755932453576973, guid: 184c2b132da7a7b4287ae9c6b70bd017, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1903313039}
   m_SourcePrefab: {fileID: 100100000, guid: 184c2b132da7a7b4287ae9c6b70bd017, type: 3}
 --- !u!4 &440295028 stripped
 Transform:
@@ -3790,6 +3832,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3819044801335073403, guid: aeb9bcec887ae7d44b56c855f88e09c2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1355904330}
+    - targetCorrespondingSourceObject: {fileID: 3819044801335073403, guid: aeb9bcec887ae7d44b56c855f88e09c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1355904334}
   m_SourcePrefab: {fileID: 100100000, guid: aeb9bcec887ae7d44b56c855f88e09c2, type: 3}
 --- !u!4 &533108152 stripped
 Transform:
@@ -3810,8 +3855,8 @@ Rigidbody:
   m_GameObject: {fileID: 542120076}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3843,6 +3888,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &542120088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542120076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!21 &553224050
 Material:
   serializedVersion: 8
@@ -4085,14 +4147,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 564904475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider1: {fileID: 186448024}
+  TriggerCollider2: {fileID: 1819033041}
+  TriggerCollider3: {fileID: 997499569}
+  TriggerCollider4: {fileID: 573008916}
+  TriggerCollider5: {fileID: 750383682}
+  TriggerCollider6: {fileID: 871114199}
+  ReturnToOriginalPosition: 1
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 0}
+  HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
-  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &569370913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,14 +5257,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 666121264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider1: {fileID: 186448024}
+  TriggerCollider2: {fileID: 1819033041}
+  TriggerCollider3: {fileID: 997499569}
+  TriggerCollider4: {fileID: 573008916}
+  TriggerCollider5: {fileID: 750383682}
+  TriggerCollider6: {fileID: 871114199}
+  ReturnToOriginalPosition: 1
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 0}
+  HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
-  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &668360035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5648080648438492369, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -5287,6 +5367,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4697323130739647970, guid: 7cfad040db226dd4a83d953484ad354d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 779176441}
+    - targetCorrespondingSourceObject: {fileID: 4697323130739647970, guid: 7cfad040db226dd4a83d953484ad354d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 779176445}
   m_SourcePrefab: {fileID: 100100000, guid: 7cfad040db226dd4a83d953484ad354d, type: 3}
 --- !u!4 &670635209 stripped
 Transform:
@@ -5914,6 +5997,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3055917035381738804, guid: 4b2ee46e2d4d3a04d8acaf08f1149365, type: 3}
       insertIndex: -1
       addedObject: {fileID: 696577361}
+    - targetCorrespondingSourceObject: {fileID: 3055917035381738804, guid: 4b2ee46e2d4d3a04d8acaf08f1149365, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 696577365}
   m_SourcePrefab: {fileID: 100100000, guid: 4b2ee46e2d4d3a04d8acaf08f1149365, type: 3}
 --- !u!4 &696577353 stripped
 Transform:
@@ -5929,8 +6015,8 @@ Rigidbody:
   m_GameObject: {fileID: 185211817}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -5962,6 +6048,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &696577365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185211817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &709537982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6968,8 +7071,8 @@ Rigidbody:
   m_GameObject: {fileID: 779176433}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7001,6 +7104,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &779176445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779176433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &780177864
 GameObject:
   m_ObjectHideFlags: 0
@@ -7216,6 +7336,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5046011416637948053, guid: 2dea7de1d37bb314192914ed9a7b6682, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1111604778}
+    - targetCorrespondingSourceObject: {fileID: 5046011416637948053, guid: 2dea7de1d37bb314192914ed9a7b6682, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1111604782}
   m_SourcePrefab: {fileID: 100100000, guid: 2dea7de1d37bb314192914ed9a7b6682, type: 3}
 --- !u!4 &795232845 stripped
 Transform:
@@ -7685,14 +7808,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 845432948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider1: {fileID: 186448024}
+  TriggerCollider2: {fileID: 1819033041}
+  TriggerCollider3: {fileID: 997499569}
+  TriggerCollider4: {fileID: 573008916}
+  TriggerCollider5: {fileID: 750383682}
+  TriggerCollider6: {fileID: 871114199}
+  ReturnToOriginalPosition: 1
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 0}
+  HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
-  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &846329544
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,14 +8454,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 924373104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 26fbece6a6f10494687e7abedb66a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider1: {fileID: 186448024}
+  TriggerCollider2: {fileID: 1819033041}
+  TriggerCollider3: {fileID: 997499569}
+  TriggerCollider4: {fileID: 573008916}
+  TriggerCollider5: {fileID: 750383682}
+  TriggerCollider6: {fileID: 871114199}
+  ReturnToOriginalPosition: 1
+  ReturnPosition: {x: 0, y: 2.147, z: 2}
+  Table: {fileID: 0}
+  HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
-  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &941294730
 GameObject:
   m_ObjectHideFlags: 0
@@ -9928,6 +10069,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8368534045043043061, guid: 00f54d81105eccb4790ceac00d626a8c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1076080618}
+    - targetCorrespondingSourceObject: {fileID: 8368534045043043061, guid: 00f54d81105eccb4790ceac00d626a8c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1076080622}
   m_SourcePrefab: {fileID: 100100000, guid: 00f54d81105eccb4790ceac00d626a8c, type: 3}
 --- !u!4 &1076080610 stripped
 Transform:
@@ -9943,8 +10087,8 @@ Rigidbody:
   m_GameObject: {fileID: 830344460}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -9976,6 +10120,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1076080622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830344460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1085247716
 GameObject:
   m_ObjectHideFlags: 0
@@ -10320,6 +10481,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1239444623999614384, guid: 5cdd05de67efe0e40986929407de3a1f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1755259931}
+    - targetCorrespondingSourceObject: {fileID: 1239444623999614384, guid: 5cdd05de67efe0e40986929407de3a1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1755259935}
   m_SourcePrefab: {fileID: 100100000, guid: 5cdd05de67efe0e40986929407de3a1f, type: 3}
 --- !u!4 &1092740046 stripped
 Transform:
@@ -10463,8 +10627,8 @@ Rigidbody:
   m_GameObject: {fileID: 1111604770}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -10496,6 +10660,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1111604782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111604770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1001 &1111979705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10578,6 +10759,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5688704429982422663, guid: af59e101902ae394b913968816506e5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1111979714}
+    - targetCorrespondingSourceObject: {fileID: 5688704429982422663, guid: af59e101902ae394b913968816506e5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1111979718}
   m_SourcePrefab: {fileID: 100100000, guid: af59e101902ae394b913968816506e5f, type: 3}
 --- !u!4 &1111979706 stripped
 Transform:
@@ -10593,8 +10777,8 @@ Rigidbody:
   m_GameObject: {fileID: 293997587}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -10626,6 +10810,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1111979718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293997587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!4 &1158418199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
@@ -10800,6 +11001,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7088047380367486217, guid: 9177a1e9c06ce43489eaa7cad75e8ee0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1177878043}
+    - targetCorrespondingSourceObject: {fileID: 7088047380367486217, guid: 9177a1e9c06ce43489eaa7cad75e8ee0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1177878047}
   m_SourcePrefab: {fileID: 100100000, guid: 9177a1e9c06ce43489eaa7cad75e8ee0, type: 3}
 --- !u!4 &1177878035 stripped
 Transform:
@@ -10815,8 +11019,8 @@ Rigidbody:
   m_GameObject: {fileID: 798024043}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -10848,6 +11052,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1177878047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798024043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1197928866
 GameObject:
   m_ObjectHideFlags: 0
@@ -11524,6 +11745,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1796717195845796508, guid: a617a682be03eaf489cf719609185ea5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1733157104}
+    - targetCorrespondingSourceObject: {fileID: 1796717195845796508, guid: a617a682be03eaf489cf719609185ea5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1733157108}
   m_SourcePrefab: {fileID: 100100000, guid: a617a682be03eaf489cf719609185ea5, type: 3}
 --- !u!4 &1254567359 stripped
 Transform:
@@ -12110,6 +12334,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5033021387351474078, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1785889984}
+    - targetCorrespondingSourceObject: {fileID: 5033021387351474078, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1785889988}
   m_SourcePrefab: {fileID: 100100000, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
 --- !u!4 &1321465309 stripped
 Transform:
@@ -12266,8 +12493,8 @@ Rigidbody:
   m_GameObject: {fileID: 1355904322}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -12299,6 +12526,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1355904334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355904322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1394360823
 GameObject:
   m_ObjectHideFlags: 0
@@ -13345,6 +13589,7 @@ MonoBehaviour:
   TriggerCollider4: {fileID: 750383682}
   TriggerCollider5: {fileID: 871114199}
   TriggerCollider6: {fileID: 186448024}
+  ReturnToOriginalPosition: 0
   ReturnPosition: {x: 0, y: 2.147, z: 2}
   Table: {fileID: 1158418199}
   HeightAboveTable: 0.15
@@ -13363,10 +13608,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
-  LinearDrag: 0.5
-  AngularDrag: 0.5
+  LinearDrag: 0.35
+  AngularDrag: 0.35
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
+  GravityMultiplier: 1
 --- !u!114 &1454358716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13387,6 +13633,9 @@ MonoBehaviour:
   MinJumpAngle: 15
   BaseJumpForce: 0.3
   VerticalForceScale: 0.5
+  ballRb: {fileID: 0}
+  ballCollider: {fileID: 0}
+  ballRadius: 0
 --- !u!114 &1454358717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13412,6 +13661,10 @@ MonoBehaviour:
   staticFriction: 0.4
   bounciness: 0.3
   mass: 1
+  strikePhysics: {fileID: 0}
+  ballPhysics: {fileID: 0}
+  rb: {fileID: 0}
+  physicMaterial: {fileID: 0}
 --- !u!114 &1454358718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13448,6 +13701,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JumpDiagnostic
   continuousMonitoring: 1
   monitorInterval: 0.5
+  rb: {fileID: 0}
+  sphereCollider: {fileID: 0}
+  physicMaterial: {fileID: 0}
+  strikePhysics: {fileID: 0}
+  lastCheckTime: 0
+  lastPosition: {x: 0, y: 0, z: 0}
+  lastYVelocity: 0
 --- !u!1 &1455161547
 GameObject:
   m_ObjectHideFlags: 0
@@ -15211,8 +15471,8 @@ Rigidbody:
   m_GameObject: {fileID: 1733157096}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -15244,6 +15504,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1733157108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733157096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1734769191
 GameObject:
   m_ObjectHideFlags: 0
@@ -15299,8 +15576,8 @@ Rigidbody:
   m_GameObject: {fileID: 1755259923}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -15332,6 +15609,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1755259935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755259923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1785889976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5033021387351474078, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
@@ -15346,8 +15640,8 @@ Rigidbody:
   m_GameObject: {fileID: 1785889976}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -15379,6 +15673,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1785889988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785889976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1799298952
 GameObject:
   m_ObjectHideFlags: 0
@@ -16136,8 +16447,8 @@ Rigidbody:
   m_GameObject: {fileID: 1865351690}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -16169,6 +16480,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1865351702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865351690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1878765502
 GameObject:
   m_ObjectHideFlags: 0
@@ -16270,8 +16598,8 @@ Rigidbody:
   m_GameObject: {fileID: 1894093740}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -16303,6 +16631,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1894093752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894093740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!224 &1895016410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5661463879392340456, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -16442,8 +16787,8 @@ Rigidbody:
   m_GameObject: {fileID: 1903313027}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -16475,6 +16820,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &1903313039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903313027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &1961834694
 GameObject:
   m_ObjectHideFlags: 0
@@ -17741,8 +18103,8 @@ Rigidbody:
   m_GameObject: {fileID: 2099964865}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.5
+  m_LinearDamping: 0.35
+  m_AngularDamping: 0.35
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -17774,6 +18136,23 @@ MonoBehaviour:
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
   minImpactForce: 0.01
   maxVolumeForce: 20
+--- !u!114 &2099964877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099964865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 0.35
+  AngularDrag: 0.35
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
+  GravityMultiplier: 1.5
 --- !u!1 &2112587465
 GameObject:
   m_ObjectHideFlags: 0
