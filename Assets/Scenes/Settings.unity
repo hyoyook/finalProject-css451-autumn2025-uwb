@@ -8040,8 +8040,9 @@ MonoBehaviour:
   CueHierarchy: {fileID: 1096360081}
   CueBallTarget: {fileID: 1454358712}
   OrbitDistance: 5
-  YawSpeed: 60
-  PitchSpeed: 40
+  YawSpeed: 30
+  PitchSpeed: 30
+  ShiftSpeedMultiplier: 3.5
   MinPitchAngle: 2
   MaxPitchAngle: 60
   CuePitchSpeed: 4
