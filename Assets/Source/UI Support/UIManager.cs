@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public Button closeGameButton;      // Close the game
     public Button closeUI;              // Close UI, return to the gameplay
 
+    public Button resetButton_2ndPanel; // restButton in 2nd Panel
+
     private void Start()
     {
         // everything is hidden

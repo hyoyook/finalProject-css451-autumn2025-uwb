@@ -21,7 +21,7 @@ public class TextureDropdown : MonoBehaviour
             return;
         }
 
-        dropdown.options.Clear();       
+        dropdown.ClearOptions();
         foreach (var mat in materials)
         {
             dropdown.options.Add(new TMP_Dropdown.OptionData(mat.name));
