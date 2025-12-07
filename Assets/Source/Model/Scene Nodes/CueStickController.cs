@@ -24,11 +24,14 @@ public partial class CueStickController : MonoBehaviour
     [Tooltip("Distance from the cue ball to orbit at")]
     public float OrbitDistance = 5.0f;
 
-    [Tooltip("Speed of yaw rotation (left/right orbiting)")]
-    public float YawSpeed = 60.0f;
+    [Tooltip("Normal speed of yaw rotation (left/right orbiting)")]
+    public float YawSpeed = 30.0f;
 
-    [Tooltip("Speed of pitch rotation (up/down orbiting)")]
-    public float PitchSpeed = 40.0f;
+    [Tooltip("Normal speed of pitch rotation (up/down orbiting)")]
+    public float PitchSpeed = 20.0f;
+
+    [Tooltip("Speed multiplier when holding Shift")]
+    public float ShiftSpeedMultiplier = 2.5f;
 
     [Tooltip("Minimum pitch angle (looking down at the ball)")]
     public float MinPitchAngle = 5.0f;
@@ -176,12 +179,16 @@ public partial class CueStickController : MonoBehaviour
             pitchInput = -1.0f;
         }
 
-        // Apply yaw rotation
-        currentYaw += yawInput * YawSpeed * Time.deltaTime;
+        // Check if Shift is held for faster orbiting
+        bool shiftHeld = Keyboard.current.leftShiftKey.isPressed || Keyboard.current.rightShiftKey.isPressed;
+        float speedMultiplier = shiftHeld ? ShiftSpeedMultiplier : 1.0f;
+
+        // Apply yaw rotation with speed multiplier
+        currentYaw += yawInput * YawSpeed * speedMultiplier * Time.deltaTime;
         currentYaw = NormalizeAngle(currentYaw);
 
-        // Apply pitch rotation with clamping
-        currentPitch += pitchInput * PitchSpeed * Time.deltaTime;
+        // Apply pitch rotation with clamping and speed multiplier
+        currentPitch += pitchInput * PitchSpeed * speedMultiplier * Time.deltaTime;
         currentPitch = Mathf.Clamp(currentPitch, MinPitchAngle, MaxPitchAngle);
     }
 
