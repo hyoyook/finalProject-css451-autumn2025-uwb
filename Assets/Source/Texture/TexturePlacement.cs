@@ -25,8 +25,7 @@ public partial class TexturePlacement : MonoBehaviour
         baseUV = (Vector2[])baseUV.Clone();
        
     }
-
-    private void LateUpdate()
+        private void LateUpdate()
     {
         if (mMesh == null || baseUV == null)
         {
