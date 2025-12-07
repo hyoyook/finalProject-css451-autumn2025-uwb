@@ -53,12 +53,6 @@ public partial class AudioControlUI : MonoBehaviour
 
     private void Update() 
     {
-        var ky = Keyboard.current;
-        if (ky != null && ky[muteKey].wasPressedThisFrame) // ignore holding down
-        {
-            ToggleMute();
-
-        }
     }
 
     #region sliders 
@@ -71,6 +65,7 @@ public partial class AudioControlUI : MonoBehaviour
             isMuted = false;               // clear mute state
             lastMasterPercent = v;   // update baseline
             SetMixerVolume(masterParam, v);
+            UpdateMuteIcon();
             Debug.Log("[AudioControlUI] Slider changed -> auto unmuted.");
             return;
         }

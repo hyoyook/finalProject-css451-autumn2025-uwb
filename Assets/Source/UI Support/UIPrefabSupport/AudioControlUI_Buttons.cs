@@ -10,7 +10,10 @@ public partial class AudioControlUI : MonoBehaviour
     #region public button handling
     public void OnMuteButtonClicked()
     {
-        Debug.Log("[AudioControlUI] Mute button clicked");
+        ToggleMute();
+    }
+    public void OnMuteKeyGlobal() 
+    {
         ToggleMute();
     }
 
@@ -36,12 +39,6 @@ public partial class AudioControlUI : MonoBehaviour
             }
             // set the mute in the mixer
             mainMixer.SetFloat(masterParam, k_MutedDb);
-
-            // update button icon
-            if (muteButtonImage != null && muteSprite != null)
-            {
-                muteButtonImage.sprite = muteSprite;
-            }
         }
         else
         {
@@ -53,13 +50,29 @@ public partial class AudioControlUI : MonoBehaviour
             {
                 masterSlider.SetSliderValue(lastMasterPercent);
             }
-            if (muteButtonImage != null && muteSprite != null)
-            {
-                muteButtonImage.sprite = volumeSprite;
-            }
-
         }
+        UpdateMuteIcon();
         Debug.Log("[AudioControl] Mute toggled: " + isMuted);
+    }
+
+    private void UpdateMuteIcon() 
+    {
+        if (muteButtonImage == null)
+        {
+            Debug.Log("[AudioControlUI] Missing mute button image");
+            return;
+        }
+
+        if (isMuted)
+        {
+            if (muteSprite != null)
+                muteButtonImage.sprite = muteSprite;
+        }
+        else
+        {
+            if (volumeSprite != null)
+                muteButtonImage.sprite = volumeSprite;
+        }
     }
     #endregion
 }

@@ -8,6 +8,7 @@ TagManager:
   - CueBall
   - CueStick
   - Selectable
+  - Balls
   layers:
   - Default
   - TransparentFX
