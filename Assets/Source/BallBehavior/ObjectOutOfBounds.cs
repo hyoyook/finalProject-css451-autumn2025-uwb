@@ -1,121 +1,238 @@
 using UnityEngine;
 
 /// <summary>
-/// Detects when any object goes out of bounds (falls below a certain Y level)
-/// and returns it to its original position.
-/// Works for balls, chalk, cues, or any physics object that can fall off the table.
+/// Detects when a ball goes out of bounds (falls below a certain Y level)
+/// and returns it to a safe position on the table.
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
-public class ObjectOutOfBounds : MonoBehaviour
+public class BallOutOfBounds : MonoBehaviour
 {
     [Header("Out of Bounds Detection")]
+    [Tooltip("Below this Y coordinate, ball is out of bounds")]
     public float OutOfBoundsY = 0.5f;
 
+    [Tooltip("If ball touches any of these colliders, it returns to the top of the table (optional)")]
+    public Collider TriggerCollider1;
+    public Collider TriggerCollider2;
+    public Collider TriggerCollider3;
+    public Collider TriggerCollider4;
+    public Collider TriggerCollider5;
+    public Collider TriggerCollider6;
+
     [Header("Return Settings")]
+    [Tooltip("If true, return to the original starting position. If false, use ReturnPosition.")]
+    public bool ReturnToOriginalPosition = false;
+
+    [Tooltip("Position to return the ball to (X and Z only if using table, or absolute position)")]
+    public Vector3 ReturnPosition = new Vector3(0f, 2.147f, 2f); // Default: head spot
+
+    [Tooltip("Reference to the table for calculating return height")]
+    public Transform Table;
+
+    public float HeightAboveTable = 0.15f; // Half the ball diameter plus a bit
+
     public bool FreezeOnReturn = true;
 
     [Header("Visual Feedback")]
     public bool FlashOnReturn = true;
     public float FlashDuration = 0.5f;
-    public Color FlashColor = Color.red;
 
-    // Stored original position/rotation at start
-    private Vector3 originalPosition;
-    private Quaternion originalRotation;
-
-    private Rigidbody objectRb;
-    private Renderer objectRenderer;
-    private Material objectMaterial;
+    private Rigidbody ballRb;
+    private Renderer ballRenderer;
+    private Material ballMaterial;
     private Color originalColor;
     private bool isFlashing = false;
+    private Vector3 originalPosition;
 
     void Start()
     {
-        // Store original transform
-        originalPosition = transform.position;
-        originalRotation = transform.rotation;
-
-        // Get components
-        objectRb = GetComponent<Rigidbody>();
-        objectRenderer = GetComponent<Renderer>();
+        ballRb = GetComponent<Rigidbody>();
+        ballRenderer = GetComponent<Renderer>();
         
-        if (objectRenderer != null)
+        if (ballRenderer != null)
         {
-            objectMaterial = objectRenderer.material;
-            originalColor = objectMaterial.color;
+            ballMaterial = ballRenderer.material;
+            originalColor = ballMaterial.color;
         }
 
-        Debug.Log($"[ObjectOutOfBounds] {gameObject.name} monitoring position. Out of bounds below Y = {OutOfBoundsY}");
+        // Store the original starting position
+        originalPosition = transform.position;
+
+        Debug.Log($"[BallOutOfBounds] Monitoring ball position. Out of bounds below Y = {OutOfBoundsY}");
+        Debug.Log($"[BallOutOfBounds] Original position stored: {originalPosition}");
     }
 
     void Update()
     {
-        // Check if object has fallen below the out-of-bounds threshold
+        // Check if ball has fallen below the out-of-bounds threshold
         if (transform.position.y < OutOfBoundsY)
         {
-            ReturnObjectToTable();
+            ReturnBallToTable();
         }
     }
 
     /// <summary>
-    /// Returns the object to its original position
+    /// Detect collision with the trigger colliders
     /// </summary>
-    public void ReturnObjectToTable()
+    private void OnCollisionEnter(Collision collision)
     {
-        // Move the object back to its original position and rotation
-        transform.position = originalPosition;
-        transform.rotation = originalRotation;
+        // Check if we hit any of the specified trigger colliders
+        if (IsTriggerCollider(collision.collider))
+        {
+            Debug.Log($"[BallOutOfBounds] Ball touched trigger collider: {collision.collider.name}");
+            ReturnBallToTable();
+        }
+    }
+
+    /// <summary>
+    /// Detect trigger collision (if the collider is set as trigger)
+    /// </summary>
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if we entered any of the specified trigger colliders
+        if (IsTriggerCollider(other))
+        {
+            Debug.Log($"[BallOutOfBounds] Ball entered trigger collider: {other.name}");
+            ReturnBallToTable();
+        }
+    }
+
+    /// <summary>
+    /// Helper method to check if a collider is one of our trigger colliders
+    /// </summary>
+    private bool IsTriggerCollider(Collider collider)
+    {
+        return (TriggerCollider1 != null && collider == TriggerCollider1) ||
+               (TriggerCollider2 != null && collider == TriggerCollider2) ||
+               (TriggerCollider3 != null && collider == TriggerCollider3) ||
+               (TriggerCollider4 != null && collider == TriggerCollider4) ||
+               (TriggerCollider5 != null && collider == TriggerCollider5) ||
+               (TriggerCollider6 != null && collider == TriggerCollider6);
+    }
+
+    /// <summary>
+    /// Returns the ball to the table at the specified position
+    /// </summary>
+    public void ReturnBallToTable()
+    {
+        // Calculate return position
+        Vector3 returnPos = CalculateReturnPosition();
+
+        // Move the ball
+        transform.position = returnPos;
 
         // Stop all movement
-        if (FreezeOnReturn && objectRb != null)
+        if (FreezeOnReturn && ballRb != null)
         {
-            objectRb.linearVelocity = Vector3.zero;
-            objectRb.angularVelocity = Vector3.zero;
+            ballRb.linearVelocity = Vector3.zero;
+            ballRb.angularVelocity = Vector3.zero;
         }
 
         // Visual feedback
         if (FlashOnReturn && !isFlashing)
         {
-            StartCoroutine(FlashObject());
+            StartCoroutine(FlashBall());
         }
 
-        Debug.Log($"[ObjectOutOfBounds] {gameObject.name} returned to original position at {originalPosition}");
+        Debug.Log($"[BallOutOfBounds] Ball returned to table at {returnPos}");
     }
 
     /// <summary>
-    /// Flash the object to indicate it was returned
+    /// Calculates where to return the ball based on settings
     /// </summary>
-    private System.Collections.IEnumerator FlashObject()
+    private Vector3 CalculateReturnPosition()
     {
-        if (objectMaterial == null) yield break;
+        // If returning to original position
+        if (ReturnToOriginalPosition)
+        {
+            return originalPosition;
+        }
+
+        // If table reference is set, place relative to table
+        if (Table != null)
+        {
+            // Get table's top surface position
+            float tableY = Table.position.y;
+            
+            // If table has a collider, get its top bound
+            Collider tableCollider = Table.GetComponent<Collider>();
+            if (tableCollider != null)
+            {
+                tableY = tableCollider.bounds.max.y;
+            }
+
+            // Return position with correct height
+            return new Vector3(
+                ReturnPosition.x,
+                tableY + HeightAboveTable,
+                ReturnPosition.z
+            );
+        }
+
+        // Otherwise use absolute position
+        return ReturnPosition;
+    }
+
+    /// <summary>
+    /// Flash the ball to indicate it was returned
+    /// </summary>
+    private System.Collections.IEnumerator FlashBall()
+    {
+        if (ballMaterial == null) yield break;
 
         isFlashing = true;
+        Color flashColor = Color.red;
         float elapsed = 0f;
 
         while (elapsed < FlashDuration)
         {
             elapsed += Time.deltaTime;
             float t = Mathf.PingPong(elapsed * 4f, 1f); // Flash 4 times per second
-            objectMaterial.color = Color.Lerp(originalColor, FlashColor, t);
+            ballMaterial.color = Color.Lerp(originalColor, flashColor, t);
             yield return null;
         }
 
         // Restore original color
-        objectMaterial.color = originalColor;
+        ballMaterial.color = originalColor;
         isFlashing = false;
     }
 
     /// <summary>
-    /// Update the stored original position (useful if object moves during gameplay)
+    /// Manually set the return position (useful for in-hand placement)
+    /// </summary>
+    public void SetReturnPosition(Vector3 newPosition)
+    {
+        ReturnPosition = newPosition;
+    }
+
+    /// <summary>
+    /// Update the stored original position to the current position
     /// </summary>
     public void UpdateOriginalPosition()
     {
         originalPosition = transform.position;
-        originalRotation = transform.rotation;
+        Debug.Log($"[BallOutOfBounds] Original position updated to: {originalPosition}");
     }
 
     /// <summary>
-    /// Check if the object is currently out of bounds
+    /// Update the stored original position to a specific position
+    /// </summary>
+    public void UpdateOriginalPosition(Vector3 newOriginalPosition)
+    {
+        originalPosition = newOriginalPosition;
+        Debug.Log($"[BallOutOfBounds] Original position set to: {originalPosition}");
+    }
+
+    /// <summary>
+    /// Get the stored original position
+    /// </summary>
+    public Vector3 GetOriginalPosition()
+    {
+        return originalPosition;
+    }
+
+    /// <summary>
+    /// Check if the ball is currently out of bounds
     /// </summary>
     public bool IsOutOfBounds()
     {
@@ -125,14 +242,14 @@ public class ObjectOutOfBounds : MonoBehaviour
     // Gizmos for visualization in Scene view
     private void OnDrawGizmosSelected()
     {
-        // Draw the return position (current position in edit mode, original position in play mode)
+        // Draw the return position
         Gizmos.color = Color.green;
-        Vector3 returnPos = Application.isPlaying ? originalPosition : transform.position;
+        Vector3 returnPos = CalculateReturnPosition();
         Gizmos.DrawWireSphere(returnPos, 0.15f);
         Gizmos.DrawLine(returnPos + Vector3.up * 0.5f, returnPos - Vector3.up * 0.5f);
 
         // Draw the out-of-bounds plane
-        Gizmos.color = new Color(1f, 0f, 0f, 0.3f);
+        Gizmos.color = Color.red;
         float gridSize = 10f;
         Vector3 center = new Vector3(0, OutOfBoundsY, 0);
         
@@ -149,11 +266,11 @@ public class ObjectOutOfBounds : MonoBehaviour
             );
         }
 
-        // Draw original position marker in play mode
-        if (Application.isPlaying)
+        // Draw line to table if assigned
+        if (Table != null)
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(originalPosition, 0.1f);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawLine(transform.position, Table.position);
         }
     }
 }
