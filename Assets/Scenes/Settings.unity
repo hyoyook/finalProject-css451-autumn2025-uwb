@@ -465,6 +465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoolTable_V5_UVEdit_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6302976601217006689, guid: 0e1a4419fd3a7344d979e9bde2d8287d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5599eea9fa908b649831fa8a9bf57c4b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1002,6 +1006,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!1 &140298498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2152,6 +2165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!1 &287780086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,6 +2613,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!1 &353997499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3858,6 +3889,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!1 &571059451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4709,6 +4749,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!114 &668360035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5648080648438492369, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -6155,12 +6204,6 @@ MonoBehaviour:
     - m_Text: Default Tablecloth
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Option B
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Option C
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7081,6 +7124,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!1 &846329544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7578,6 +7630,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor:
+    r: 1
+    g: 0
+    b: 0
+    a: 1
 --- !u!1 &941294730
 GameObject:
   m_ObjectHideFlags: 0
@@ -9187,7 +9248,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 1
+  m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
@@ -14492,11 +14553,12 @@ MonoBehaviour:
   dropdown: {fileID: 758646573}
   targetRenderer: {fileID: 30116565}
   materials:
-  - {fileID: 2100000, guid: 5599eea9fa908b649831fa8a9bf57c4b, type: 2}
-  - {fileID: 2100000, guid: 5a707ba045dd6984287be0dad4c6a108, type: 2}
+  - {fileID: -482929080202051814, guid: 0e1a4419fd3a7344d979e9bde2d8287d, type: 3}
+  - {fileID: 2100000, guid: 36456dafe8a1e2041a6068352e16e991, type: 2}
   - {fileID: 2100000, guid: 223019897e7c21842aee0689455d54e1, type: 2}
-  - {fileID: 2100000, guid: a6e043f951bcb2340bd35abbc1240da1, type: 2}
-  - {fileID: 2100000, guid: 990416c4cd8a660488a13f64ed018c3d, type: 2}
+  - {fileID: 2100000, guid: 1da066123d3748442bed9506ea18a4eb, type: 2}
+  - {fileID: 2100000, guid: d62756dfa14223c42bbc3d4b34d37930, type: 2}
+  - {fileID: 2100000, guid: 5a707ba045dd6984287be0dad4c6a108, type: 2}
 --- !u!114 &1816606896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16635,7 +16697,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2126639996}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1816606896}
+        m_TargetAssemblyTypeName: TextureXfromControl, Assembly-CSharp
+        m_MethodName: OnResetTexture
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2126639996
 MonoBehaviour:
   m_ObjectHideFlags: 0
