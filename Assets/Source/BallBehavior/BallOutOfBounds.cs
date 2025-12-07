@@ -8,11 +8,17 @@ using UnityEngine;
 public class BallOutOfBounds : MonoBehaviour
 {
     [Header("Out of Bounds Detection")]
-    public float OutOfBoundsY = 0.5f; // Below this Y, ball is out of bounds
+    [Tooltip("Below this Y coordinate, ball is out of bounds")]
+    public float OutOfBoundsY = 0.5f;
+
+    [Tooltip("If ball touches this collider, it returns to the top of the table (optional)")]
+    public Collider TriggerCollider;
 
     [Header("Return Settings")]
+    [Tooltip("Position to return the ball to (X and Z only if using table, or absolute position)")]
     public Vector3 ReturnPosition = new Vector3(0f, 2.147f, 2f); // Default: head spot
 
+    [Tooltip("Reference to the table for calculating return height")]
     public Transform Table;
 
     public float HeightAboveTable = 0.15f; // Half the ball diameter plus a bit
@@ -48,6 +54,32 @@ public class BallOutOfBounds : MonoBehaviour
         // Check if ball has fallen below the out-of-bounds threshold
         if (transform.position.y < OutOfBoundsY)
         {
+            ReturnBallToTable();
+        }
+    }
+
+    /// <summary>
+    /// Detect collision with the trigger collider
+    /// </summary>
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Check if we hit the specified trigger collider
+        if (TriggerCollider != null && collision.collider == TriggerCollider)
+        {
+            Debug.Log($"[BallOutOfBounds] Ball touched trigger collider: {collision.collider.name}");
+            ReturnBallToTable();
+        }
+    }
+
+    /// <summary>
+    /// Detect trigger collision (if the collider is set as trigger)
+    /// </summary>
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if we entered the specified trigger collider
+        if (TriggerCollider != null && other == TriggerCollider)
+        {
+            Debug.Log($"[BallOutOfBounds] Ball entered trigger collider: {other.name}");
             ReturnBallToTable();
         }
     }

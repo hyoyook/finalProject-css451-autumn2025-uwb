@@ -967,9 +967,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 117291222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &140298498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,9 +2243,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 272870327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &287780086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,9 +2687,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 352612194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &353997499
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,9 +4070,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 564904475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &569370913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,9 +5037,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 666121264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &668360035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5648080648438492369, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -7377,9 +7402,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 845432948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &846329544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7874,9 +7904,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 924373104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f812523e16d1c418e3c77271a83f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &941294730
 GameObject:
   m_ObjectHideFlags: 0
@@ -12608,6 +12643,7 @@ GameObject:
   - component: {fileID: 1454358709}
   - component: {fileID: 1454358713}
   - component: {fileID: 1454358714}
+  - component: {fileID: 1454358715}
   m_Layer: 8
   m_Name: Cue Ball
   m_TagString: Selectable
@@ -12716,8 +12752,8 @@ Rigidbody:
   m_GameObject: {fileID: 1454358708}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.5
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.75
+  m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -12747,12 +12783,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallOutOfBounds
   OutOfBoundsY: 0.5
+  TriggerCollider: {fileID: 186448024}
   ReturnPosition: {x: 0, y: 2.147, z: 2}
   Table: {fileID: 1158418199}
   HeightAboveTable: 0.15
   FreezeOnReturn: 1
   FlashOnReturn: 1
   FlashDuration: 0.5
+--- !u!114 &1454358715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454358708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
+  LinearDrag: 1
+  AngularDrag: 2
+  StopVelocityThreshold: 0.05
+  StopAngularVelocityThreshold: 0.05
 --- !u!1 &1455161547
 GameObject:
   m_ObjectHideFlags: 0
