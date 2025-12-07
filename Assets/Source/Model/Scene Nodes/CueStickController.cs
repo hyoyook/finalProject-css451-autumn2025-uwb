@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 /// Controls:
 /// - WASD: Yaw and Pitch orbiting around the cue ball
 /// - CTRL + WASD: Pitch and Yaw the cue stick in place (adjust angle of attack)
+/// - Left Click: Select objects tagged as "Selectable" (see TargetSelection partial class)
 /// </summary>
 public partial class CueStickController : MonoBehaviour
 {
@@ -94,12 +95,18 @@ public partial class CueStickController : MonoBehaviour
         
         // Initialize shot system (from partial class)
         ShotStart();
+
+        // Initialize target selection (from partial class)
+        TargetSelectionStart();
     }
 
     private void Update()
     {
         if (CueBallTarget == null || CueHierarchy == null)
             return;
+        
+        // Update target selection (from partial class)
+        UpdateTargetSelection();
         
         // SAFETY 3: Force colliders OFF every frame while aiming
         // This prevents the "Invisible Push" where the stick moves the ball
