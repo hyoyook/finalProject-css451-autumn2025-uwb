@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -26,8 +27,12 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        // Check if keyboard is available
+        if (Keyboard.current == null)
+            return;
+
         // [ESC] opens / closes setting
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if (!rootPanel.activeSelf)
             {
@@ -76,7 +81,13 @@ public class UIManager : MonoBehaviour
     }
     public void OpenInformationPage() 
     {
+        // Make sure root panel is active first
+        if (!rootPanel.activeSelf)
+        {
+            rootPanel.SetActive(true);
+        }
         ShowOnly(informationPage);
+        Debug.Log("[UIManager] Information Page opened");
     }
 
     public void ResetScene() 
