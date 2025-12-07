@@ -321,6 +321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball2
       objectReference: {fileID: 0}
+    - target: {fileID: 6079086602714266180, guid: 640c129b22984884bb11c7ba06d089f8, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 7073268782894906853, guid: 640c129b22984884bb11c7ba06d089f8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -840,6 +844,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &140298498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball13
       objectReference: {fileID: 0}
+    - target: {fileID: 800839063424641009, guid: 734eff4c8e2deff4b9c8269e3be34f9f, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 1399783887580217634, guid: 734eff4c8e2deff4b9c8269e3be34f9f, type: 3}
       propertyPath: m_Material
       value: 
@@ -1408,6 +1421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball6
       objectReference: {fileID: 0}
+    - target: {fileID: 3081245940751128763, guid: 676b951fbc11e5f40b9ef951fe4e6507, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 5959333737637846830, guid: 676b951fbc11e5f40b9ef951fe4e6507, type: 3}
       propertyPath: m_Material
       value: 
@@ -1438,11 +1455,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 364094407138305964, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 674692529844026489, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1314799117079042688, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1510,7 +1527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2857388914096966553, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3604490192824117551, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_Name
@@ -1522,11 +1539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959559347571819591, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5224910436480425874, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5482142715524365118, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_Color.a
@@ -1766,7 +1783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7649475708555195303, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8163761907776443742, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1845,6 +1862,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5587044064594359562, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1031985900}
+    - targetCorrespondingSourceObject: {fileID: 5587044064594359562, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1031985904}
   m_SourcePrefab: {fileID: 100100000, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
 --- !u!1 &247866757
 GameObject:
@@ -1967,6 +1987,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &287780086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,6 +2285,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball5
       objectReference: {fileID: 0}
+    - target: {fileID: 2693255205413886130, guid: dbde73878edfcac49a79523276ff5c73, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 4131082186418213354, guid: dbde73878edfcac49a79523276ff5c73, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -2402,6 +2431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &353997499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,6 +3156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball14
       objectReference: {fileID: 0}
+    - target: {fileID: 3380755932453576973, guid: 184c2b132da7a7b4287ae9c6b70bd017, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3297,6 +3335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball3
       objectReference: {fileID: 0}
+    - target: {fileID: 3819044801335073403, guid: aeb9bcec887ae7d44b56c855f88e09c2, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 5140096995937574388, guid: aeb9bcec887ae7d44b56c855f88e09c2, type: 3}
       propertyPath: m_Material
       value: 
@@ -3414,7 +3456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!21 &553224050
 Material:
@@ -3542,6 +3584,55 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!1 &563462984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563462986}
+  - component: {fileID: 563462985}
+  m_Layer: 0
+  m_Name: TheWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &563462985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563462984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aade4a4d8ebc4941b0d48cc3ad306b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainController
+  audioControl: {fileID: 1031985900}
+  settingsUI: {fileID: 1410999456}
+  muteKey: 27
+  infoKey: 23
+--- !u!4 &563462986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563462984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 965.36755, y: 932.9387, z: -18.10492}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1218383968}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &564904475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8914770338636811505, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
@@ -3612,6 +3703,143 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!1 &571059451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571059452}
+  - component: {fileID: 571059455}
+  - component: {fileID: 571059454}
+  - component: {fileID: 571059453}
+  m_Layer: 5
+  m_Name: ResetButton_2ndPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &571059452
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571059451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 18, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 613100749}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &571059453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571059451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 571059454}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1410999456}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ResetScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &571059454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571059451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 07bf1eb926eca5d4498c067dabb8a0b5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &571059455
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571059451}
+  m_CullTransparentMesh: 1
 --- !u!1 &580925575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3711,7 +3939,7 @@ GameObject:
   - component: {fileID: 613100749}
   - component: {fileID: 613100751}
   - component: {fileID: 613100750}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Panel_Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3727,16 +3955,17 @@ RectTransform:
   m_GameObject: {fileID: 613100748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.1103, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1504010869}
   - {fileID: 2029257911}
+  - {fileID: 571059452}
   m_Father: {fileID: 1410999460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 482}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &613100750
@@ -3753,13 +3982,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4330,6 +4559,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &668360035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5648080648438492369, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -4356,6 +4590,10 @@ PrefabInstance:
     - target: {fileID: 4697323130739647970, guid: 7cfad040db226dd4a83d953484ad354d, type: 3}
       propertyPath: m_Name
       value: Ball15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697323130739647970, guid: 7cfad040db226dd4a83d953484ad354d, type: 3}
+      propertyPath: m_TagString
+      value: Balls
       objectReference: {fileID: 0}
     - target: {fileID: 5576717925219182624, guid: 7cfad040db226dd4a83d953484ad354d, type: 3}
       propertyPath: m_LocalScale.x
@@ -4976,6 +5214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball11
       objectReference: {fileID: 0}
+    - target: {fileID: 3055917035381738804, guid: 4b2ee46e2d4d3a04d8acaf08f1149365, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 6921615392173644394, guid: 4b2ee46e2d4d3a04d8acaf08f1149365, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -5088,7 +5330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &709537982
 GameObject:
@@ -5555,12 +5797,12 @@ GameObject:
   - component: {fileID: 758472394}
   - component: {fileID: 758472395}
   m_Layer: 0
-  m_Name: Nuvole Bianche(Malidrak)
+  m_Name: Nuvole Bianche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &758472394
 Transform:
   m_ObjectHideFlags: 0
@@ -5993,7 +6235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &780177864
 GameObject:
@@ -6191,6 +6433,10 @@ PrefabInstance:
     - target: {fileID: 5046011416637948053, guid: 2dea7de1d37bb314192914ed9a7b6682, type: 3}
       propertyPath: m_Name
       value: Ball9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046011416637948053, guid: 2dea7de1d37bb314192914ed9a7b6682, type: 3}
+      propertyPath: m_TagString
+      value: Balls
       objectReference: {fileID: 0}
     - target: {fileID: 9040868993222088423, guid: 2dea7de1d37bb314192914ed9a7b6682, type: 3}
       propertyPath: m_Material
@@ -6678,6 +6924,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &846329544
 GameObject:
   m_ObjectHideFlags: 0
@@ -7175,6 +7426,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85af107e7230db84c94b872598ed6ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutOfBounds
+  OutOfBoundsY: 0.5
+  FreezeOnReturn: 1
+  FlashOnReturn: 1
+  FlashDuration: 0.5
+  FlashColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &941294730
 GameObject:
   m_ObjectHideFlags: 0
@@ -7312,7 +7568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &943796558
 Transform:
   m_ObjectHideFlags: 0
@@ -7749,6 +8005,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5759478105390725846, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
+--- !u!23 &1023591426 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6302976601217006689, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
+  m_PrefabInstance: {fileID: 6825240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1031985898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5587044064594359562, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -7782,6 +8043,20 @@ MonoBehaviour:
   muteButtonImage: {fileID: 709537985}
   muteSprite: {fileID: 21300000, guid: 4c47d2ec844165f4ebb42387ae3894fe, type: 3}
   volumeSprite: {fileID: 21300000, guid: 32b8cb1e5d9d4534b894eaf832acadf7, type: 3}
+--- !u!114 &1031985904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031985898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974d321fa98c22a468415a50708aee48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BGMDropdown
+  dropdown: {fileID: 739018545}
+  playlist: {fileID: 105611617}
 --- !u!21 &1037254398
 Material:
   serializedVersion: 8
@@ -8176,7 +8451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1057350515
 Transform:
   m_ObjectHideFlags: 0
@@ -8606,6 +8881,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball7
       objectReference: {fileID: 0}
+    - target: {fileID: 8368534045043043061, guid: 00f54d81105eccb4790ceac00d626a8c, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8662,7 +8941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1085247716
 GameObject:
@@ -8938,6 +9217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball10
       objectReference: {fileID: 0}
+    - target: {fileID: 1239444623999614384, guid: 5cdd05de67efe0e40986929407de3a1f, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 3320478751598247140, guid: 5cdd05de67efe0e40986929407de3a1f, type: 3}
       propertyPath: m_Material
       value: 
@@ -9178,7 +9461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1001 &1111979705
 PrefabInstance:
@@ -9195,6 +9478,10 @@ PrefabInstance:
     - target: {fileID: 5688704429982422663, guid: af59e101902ae394b913968816506e5f, type: 3}
       propertyPath: m_Name
       value: Ball4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688704429982422663, guid: af59e101902ae394b913968816506e5f, type: 3}
+      propertyPath: m_TagString
+      value: Balls
       objectReference: {fileID: 0}
     - target: {fileID: 6172297293430045423, guid: af59e101902ae394b913968816506e5f, type: 3}
       propertyPath: m_LocalScale.x
@@ -9304,7 +9591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!4 &1158418199 stripped
 Transform:
@@ -9414,6 +9701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball12
       objectReference: {fileID: 0}
+    - target: {fileID: 7088047380367486217, guid: 9177a1e9c06ce43489eaa7cad75e8ee0, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 7849116622884850778, guid: 9177a1e9c06ce43489eaa7cad75e8ee0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -9522,7 +9813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1197928866
 GameObject:
@@ -9977,11 +10268,11 @@ Transform:
   m_GameObject: {fileID: 1218383964}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0, z: 0.84}
+  m_LocalPosition: {x: -965.2676, y: -932.9387, z: 18.94492}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 563462986}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218700623
 GameObject:
@@ -10129,6 +10420,10 @@ PrefabInstance:
     - target: {fileID: 1796717195845796508, guid: a617a682be03eaf489cf719609185ea5, type: 3}
       propertyPath: m_Name
       value: Ball1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796717195845796508, guid: a617a682be03eaf489cf719609185ea5, type: 3}
+      propertyPath: m_TagString
+      value: Balls
       objectReference: {fileID: 0}
     - target: {fileID: 7084440461204927288, guid: a617a682be03eaf489cf719609185ea5, type: 3}
       propertyPath: m_Material
@@ -10716,6 +11011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball8
       objectReference: {fileID: 0}
+    - target: {fileID: 5033021387351474078, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
+      propertyPath: m_TagString
+      value: Balls
+      objectReference: {fileID: 0}
     - target: {fileID: 9184404823404985507, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -10965,7 +11264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1394360823
 GameObject:
@@ -10984,7 +11283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1394360824
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11363,12 +11662,12 @@ GameObject:
   - component: {fileID: 1413336762}
   - component: {fileID: 1413336763}
   m_Layer: 0
-  m_Name: Building On It(Malidrak)
+  m_Name: Building On It
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1413336762
 Transform:
   m_ObjectHideFlags: 0
@@ -12380,7 +12679,7 @@ GameObject:
   - component: {fileID: 1504010869}
   - component: {fileID: 1504010871}
   - component: {fileID: 1504010870}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12394,16 +12693,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504010868}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 0.9, y: 8.159565, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 613100749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 258, y: -39}
+  m_AnchoredPosition: {x: 258, y: -367.7421}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504010870
@@ -13396,7 +13695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1696542257
 Transform:
   m_ObjectHideFlags: 0
@@ -13554,7 +13853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1734769191
 GameObject:
@@ -13642,7 +13941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1785889976 stripped
 GameObject:
@@ -13689,7 +13988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1799298952
 GameObject:
@@ -14049,7 +14348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextureDropdown
   dropdown: {fileID: 758646573}
-  targetRenderer: {fileID: 0}
+  targetRenderer: {fileID: 1023591426}
   materials:
   - {fileID: 2100000, guid: 5599eea9fa908b649831fa8a9bf57c4b, type: 2}
   - {fileID: 2100000, guid: 5a707ba045dd6984287be0dad4c6a108, type: 2}
@@ -14345,7 +14644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1878765502
 GameObject:
@@ -14479,7 +14778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!224 &1895016410 stripped
 RectTransform:
@@ -14651,7 +14950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &1961834694
 GameObject:
@@ -15274,7 +15573,7 @@ GameObject:
   - component: {fileID: 2029257911}
   - component: {fileID: 2029257913}
   - component: {fileID: 2029257912}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15288,16 +15587,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029257910}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 0.9, y: 8.159565, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 613100749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1658, y: -39}
+  m_AnchoredPosition: {x: 1658, y: -367.7421}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2029257912
@@ -15538,7 +15837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2060481587
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15950,7 +16249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallSound
   ballHitSound: {fileID: 8300000, guid: e91f6ec773928284a8a03de9c6e99b40, type: 3}
-  minImpactForce: 0.02
+  minImpactForce: 0.01
   maxVolumeForce: 20
 --- !u!1 &2112587465
 GameObject:
@@ -17035,7 +17334,7 @@ MonoBehaviour:
   - {fileID: 0}
 --- !u!4 &5892872184481122922 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
   m_PrefabInstance: {fileID: 6863095377794398049}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6115340124509934723
@@ -17162,7 +17461,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6524696248588914896 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8914770338636811505, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
   m_PrefabInstance: {fileID: 6863095377794398049}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &6524696248588914897
@@ -17275,51 +17574,51 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 247866758}
     m_Modifications:
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.38999987
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.14059997
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.2973013
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6039475033697044463, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8914770338636811505, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: 919132149155446097, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_Name
       value: Chawk
       objectReference: {fileID: 0}
-    - target: {fileID: 8914770338636811505, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - target: {fileID: 919132149155446097, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       propertyPath: m_TagString
       value: Selectable
       objectReference: {fileID: 0}
@@ -17327,13 +17626,13 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8914770338636811505, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6524696248588914898}
-    - targetCorrespondingSourceObject: {fileID: 8914770338636811505, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6524696248588914897}
-  m_SourcePrefab: {fileID: 100100000, guid: dfa30aa4148c89c45ba411bb05aad2a9, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ab1b771f63ddd04418e3b5759df3b8f6, type: 3}
 --- !u!1 &6944695489579275359
 GameObject:
   m_ObjectHideFlags: 0
@@ -17742,7 +18041,6 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 1967283098}
   - {fileID: 756635899}
-  - {fileID: 1218383968}
   - {fileID: 580925576}
   - {fileID: 1913706640842709786}
   - {fileID: 878432766}
@@ -17752,3 +18050,4 @@ SceneRoots:
   - {fileID: 247866758}
   - {fileID: 105611617}
   - {fileID: 1410999460}
+  - {fileID: 563462986}
