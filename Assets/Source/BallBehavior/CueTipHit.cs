@@ -39,7 +39,7 @@ public class CueTipHit : MonoBehaviour
     void Start()
     {
         lastPosition = transform.position;
-        
+
         // Debug.Log($"[CueTipHit] Component started on GameObject: {gameObject.name}");
 
         // Check if we have a collider and if it's a trigger
@@ -57,7 +57,7 @@ public class CueTipHit : MonoBehaviour
             }
         }
 
-        // CRITICAL: Check for Rigidbody requirement
+        // MUST: Check for Rigidbody requirement
         Rigidbody rb = GetComponent<Rigidbody>();
         Rigidbody parentRb = GetComponentInParent<Rigidbody>();
         if (rb == null && parentRb == null)
@@ -82,7 +82,7 @@ public class CueTipHit : MonoBehaviour
                 // Debug.Log($"[CueTipHit] Found CueStickController: {cueController.name}");
             }
         }
-        
+
         // Find and check the cue ball
         GameObject[] possibleBalls = GameObject.FindGameObjectsWithTag(targetTag);
         // Debug.Log($"[CueTipHit] Found {possibleBalls.Length} GameObjects with tag '{targetTag}'");
@@ -104,7 +104,7 @@ public class CueTipHit : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Debug.Log($"[CueTipHit] OnTriggerEnter called! Collided with: {other.gameObject.name}, Tag: {other.tag}");
-        
+
         if (Time.time < lastHitTime + 0.5f)
         {
             // Debug.Log($"[CueTipHit] Too soon since last hit, ignoring");
@@ -140,23 +140,23 @@ public class CueTipHit : MonoBehaviour
         // 1. Get the cue stick's forward direction and tip position
         Vector3 cueForward = -transform.right;
         Vector3 cueTipPos = transform.position;
-        
+
         // 2. Calculate ball parameters
         Vector3 ballCenter = ballTransform.position;
         float ballRadius = ballTransform.localScale.x * 0.5f;
 
-        // 3. Simple and reliable: Use the cue tip's Y position relative to ball center
-        // This is much more stable than complex ray-sphere intersection
+        // 3. Use the cue tip's Y position relative to ball center
+        // I might need to change this in the future since it's inconsistent right now
         float verticalOffset = (cueTipPos.y - ballCenter.y) / ballRadius;
         verticalOffset = Mathf.Clamp(verticalOffset, -1f, 1f);
-        
+
         // 4. Calculate contact point on ball surface along the cue direction
         // Project backwards from ball center along cue direction
         Vector3 contactPoint = ballCenter - cueForward.normalized * ballRadius;
-        
+
         // Adjust contact point Y to match where cue tip actually is
         contactPoint.y = cueTipPos.y;
-        
+
         // 5. Calculate horizontal offset for potential side spin (future feature)
         Vector3 tipToBallHorizontal = new Vector3(
             ballCenter.x - cueTipPos.x,
@@ -180,18 +180,18 @@ public class CueTipHit : MonoBehaviour
 
         // Determine shot type based on vertical offset
         string shotType = "FLAT";
-        
+
         // JUMP SHOT: Only if hit BELOW center AND below threshold
         if (verticalOffset < -jumpThreshold)
         {
             // The lower the hit, the more upward force
-            float jumpAmount = Mathf.Abs(verticalOffset + jumpThreshold); // 0 to ~0.7
+            float jumpAmount = Mathf.Abs(verticalOffset + jumpThreshold);
             float upwardForce = jumpAmount * jumpForceMultiplier;
-            
+
             forceDirection = (horizontalDirection + Vector3.up * upwardForce).normalized;
             shotType = "JUMP";
-            
-            Debug.Log($"🔺 JUMP SHOT! VOffset: {verticalOffset:F2}, HOffset: {horizontalOffsetMag:F2}, Upward: {upwardForce:F2}");
+
+            // Debug.Log($"JUMP SHOT! VOffset: {verticalOffset:F2}, HOffset: {horizontalOffsetMag:F2}, Upward: {upwardForce:F2}");
         }
         else if (verticalOffset < -flatShotThreshold)
         {
@@ -218,12 +218,12 @@ public class CueTipHit : MonoBehaviour
             Debug.DrawLine(ballCenter, contactPoint, Color.yellow, 2f);
             Debug.DrawRay(contactPoint, forceDirection * 0.5f, Color.red, 2f);
             Debug.DrawRay(ballCenter, cueForward * 0.3f, Color.cyan, 2f);
-            
+
             // Draw the vertical offset
             Debug.DrawLine(cueTipPos, new Vector3(cueTipPos.x, ballCenter.y, cueTipPos.z), Color.magenta, 2f);
         }
 
-        Debug.Log($"⚡ {shotType} | Power: {totalPower:F1} | VOffset: {verticalOffset:F2} | HOffset: {horizontalOffsetMag:F2} | TipY: {cueTipPos.y:F3} | BallY: {ballCenter.y:F3}");
+        Debug.Log($" {shotType} | Power: {totalPower:F1} | VOffset: {verticalOffset:F2} | HOffset: {horizontalOffsetMag:F2} | TipY: {cueTipPos.y:F3} | BallY: {ballCenter.y:F3}");
 
         // 9. Notify CueStickController to hide the stick
         if (cueController != null)
@@ -244,30 +244,21 @@ public class CueTipHit : MonoBehaviour
         // - Hit BELOW center (negative offset) = BACKSPIN (negative angular velocity)
         // - Hit ABOVE center (positive offset) = TOPSPIN (positive angular velocity)
         // - Hit CENTER (zero offset) = NO SPIN
-        
+
         // Only apply spin if outside the flat shot zone
         float spinAmount = 0f;
         if (Mathf.Abs(verticalOffset) > flatShotThreshold)
         {
             spinAmount = -verticalOffset * spinStrength; // Negative because backspin opposes motion
         }
-        
+
         ballRb.angularVelocity = spinAxis * spinAmount;
 
         // Debug spin type
         string spinType = "FLAT";
         if (verticalOffset < -flatShotThreshold) spinType = "BACKSPIN";
         else if (verticalOffset > flatShotThreshold) spinType = "TOPSPIN";
-        
-        Debug.Log($"🌀 {spinType} | Offset: {verticalOffset:F2}, Spin: {spinAmount:F1} rad/s");
-    }
 
-    private void OnDrawGizmos()
-    {
-        if (!showContactPoint || !Application.isPlaying) return;
-
-        // Draw cue tip position
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, debugSphereSize);
+        // Debug.Log($"{spinType} | Offset: {verticalOffset:F2}, Spin: {spinAmount:F1} rad/s");
     }
 }
