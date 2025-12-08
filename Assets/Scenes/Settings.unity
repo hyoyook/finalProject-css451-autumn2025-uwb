@@ -14029,10 +14029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a816246c66ff94dba2dd3bcacec6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallPhysics
-  LinearDrag: 0.5
-  AngularDrag: 0.5
-  StopVelocityThreshold: 0.1
-  StopAngularVelocityThreshold: 0.1
+  LinearDrag: 0.3
+  AngularDrag: 0.3
+  StopVelocityThreshold: 0.25
+  StopAngularVelocityThreshold: 0.25
   GravityMultiplier: 2
   EnableAdvancedSpinPhysics: 0
   SpinFrictionFactor: 0.3

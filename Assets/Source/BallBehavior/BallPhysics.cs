@@ -47,7 +47,7 @@ public class BallPhysics : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+
         // Apply drag settings
         rb.linearDamping = LinearDrag;
         rb.angularDamping = AngularDrag;
@@ -56,18 +56,8 @@ public class BallPhysics : MonoBehaviour
     }
 
     /// <summary>
-    /// Called when values are changed in the Inspector (Editor and Runtime)
+    /// FixedUpdate is called at a fixed interval and is independent of frame rate
     /// </summary>
-    private void OnValidate()
-    {
-        // Update rigidbody if it exists (works in play mode)
-        if (rb != null)
-        {
-            rb.linearDamping = LinearDrag;
-            rb.angularDamping = AngularDrag;
-        }
-    }
-
     private void FixedUpdate()
     {
         // Apply custom gravity if multiplier is not 1
@@ -84,7 +74,7 @@ public class BallPhysics : MonoBehaviour
             {
                 // Calculate tangential velocity at contact point (where ball touches table)
                 Vector3 tangentialVelocity = Vector3.Cross(rb.angularVelocity, Vector3.down);
-                
+
                 // Apply friction force that converts spin to linear velocity
                 // This makes backspin slow the ball down (and eventually reverse it)
                 rb.AddForce(-tangentialVelocity * SpinFrictionFactor, ForceMode.Acceleration);
@@ -109,43 +99,8 @@ public class BallPhysics : MonoBehaviour
     private bool IsOnTable()
     {
         if (rb == null) return false;
-        
+
         // Simple check: is ball close to table height?
         return Mathf.Abs(transform.position.y - TableHeight) < TableCheckDistance;
-    }
-
-    /// <summary>
-    /// Update drag values at runtime
-    /// </summary>
-    public void SetDrag(float linear, float angular)
-    {
-        LinearDrag = linear;
-        AngularDrag = angular;
-        
-        if (rb != null)
-        {
-            rb.linearDamping = LinearDrag;
-            rb.angularDamping = AngularDrag;
-        }
-    }
-
-    /// <summary>
-    /// Set the gravity multiplier at runtime
-    /// </summary>
-    public void SetGravityMultiplier(float multiplier)
-    {
-        GravityMultiplier = Mathf.Clamp(multiplier, 0f, 5f);
-    }
-
-    /// <summary>
-    /// Force the ball to stop immediately
-    /// </summary>
-    public void ForceStop()
-    {
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
     }
 }
