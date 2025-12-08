@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class BallSound : MonoBehaviour
 {
     private AudioSource audioSource;
+    public AudioMixerGroup effectsGroup;
 
     public AudioClip ballHitSound;
     public float minImpactForce = 0.01f; // ignore tiny collisions eg. with tablecloth
@@ -13,6 +15,16 @@ public class BallSound : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        // Route ball SFX to the Effects mixer group
+        if (effectsGroup != null)
+        {
+            audioSource.outputAudioMixerGroup = effectsGroup;
+        }
+        else
+        {
+            Debug.LogError("[BGMDropdown] No OutputAudioMixerGroup(SFX) assigned");
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
