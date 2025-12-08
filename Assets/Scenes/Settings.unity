@@ -1163,12 +1163,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edaf0d6f4b6c5248a6cf03f7b3849b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CueTipHit
-  forceMultiplier: 1
+  forceMultiplier: 3
   minHitSpeed: 5
   targetTag: Selectable
-  spinStrength: 30
-  jumpForceMultiplier: 2
+  spinStrength: 50
+  jumpForceMultiplier: 0.5
   jumpThreshold: 0.3
+  flatShotThreshold: 0.25
   showContactPoint: 1
   debugSphereSize: 0.05
   cueController: {fileID: 878432765}
@@ -8302,6 +8303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 878432766}
   - component: {fileID: 878432765}
+  - component: {fileID: 878432767}
   m_Layer: 0
   m_Name: CueController
   m_TagString: Untagged
@@ -8328,7 +8330,7 @@ MonoBehaviour:
   PitchSpeed: 30
   ShiftSpeedMultiplier: 3.5
   MinPitchAngle: 2
-  MaxPitchAngle: 60
+  MaxPitchAngle: 80
   CuePitchSpeed: 4
   MinCuePitch: -2
   MaxCuePitch: 2
@@ -8348,12 +8350,12 @@ MonoBehaviour:
   MaxDrawDistance: 2
   DrawSpeed: 8.42
   StrikeSpeed: 15
-  PowerMultiplier: 45
+  PowerMultiplier: 100
   DrawAxis: {x: 1, y: 0, z: 0}
   CueElevation: 0
   ElevationSpeed: 30
   SpinStrength: 20
-  SpinAmount: 0
+  SpinAmount: 0.93930477
   SpinAdjustSpeed: 1
   SelectableTag: Selectable
   RaycastCamera: {fileID: 330585545}
@@ -8374,6 +8376,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &878432767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878432764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edaf0d6f4b6c5248a6cf03f7b3849b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CueTipHit
+  forceMultiplier: 10
+  minHitSpeed: 5
+  targetTag: Selectable
+  spinStrength: 30
+  jumpForceMultiplier: 2
+  jumpThreshold: 0.3
+  flatShotThreshold: 0.25
+  showContactPoint: 1
+  debugSphereSize: 0.05
+  cueController: {fileID: 878432765}
 --- !u!1001 &880660469
 PrefabInstance:
   m_ObjectHideFlags: 0
