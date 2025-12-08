@@ -48,10 +48,12 @@ public class BallSound : MonoBehaviour
         float minAudible = 0.25f;
         float volume = Mathf.Lerp(minAudible, 1f, Mathf.Pow(t, 0.7f));
 
-        // either balls hit other balls or cuestick hit the cue ball
-        if (collision.collider.CompareTag("Balls") || collision.collider.CompareTag("CueStick")) 
+        // only when balls hit other balls or cuestick hit the cue ball / chawk
+        if (collision.collider.CompareTag("Balls")
+            || collision.collider.CompareTag("CueStick")
+            || collision.collider.CompareTag("Selectable"))
         {
-            Debug.Log("[BallSound] Playing sound");
+            Debug.Log($"[BallSound] Playing sound, Volume: {volume}");
             audioSource.PlayOneShot(ballHitSound, volume);
         }
 

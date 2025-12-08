@@ -58,14 +58,16 @@ public class BGMDropdown : MonoBehaviour
         dropdown.ClearOptions();
         dropdown.AddOptions(options);
 
-        // play the first track
-        PlayTrack(0);
+        // play a random track
+        PlayTrack(GetRandomTrackIndex());
     }
 
     private void OnDropdownChanged(int index)
     {
         PlayTrack(index);
     }
+
+    #region PlayTracks
 
     // ChatGPT: "play one track at a time, update texts to show curr playing track title" 
     private void PlayTrack(int index)
@@ -113,7 +115,17 @@ public class BGMDropdown : MonoBehaviour
         Debug.Log($"[BGMDropdown] Now playing track #{index}: {clip.name}");
     }
 
-    #region Play/Pause/Next/Prev
+    private int GetRandomTrackIndex()
+    {
+        if (mTracks == null || mTracks.Length == 0) 
+        {
+            return 0;
+        }
+        return Random.Range(0, mTracks.Length);
+    }
+    #endregion
+
+    #region Play/Pause/Next/Prev Buttons
     public void OnPlayPauseClicked() 
     {
         if (mTracks == null || mTracks.Length == 0)
