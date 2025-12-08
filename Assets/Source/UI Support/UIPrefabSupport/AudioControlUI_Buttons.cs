@@ -52,14 +52,14 @@ public partial class AudioControlUI : MonoBehaviour
             }
         }
         UpdateMuteIcon();
-        Debug.Log("[AudioControl] Mute toggled: " + isMuted);
+        // Debug.Log("[AudioControl] Mute toggled: " + isMuted);
     }
 
     private void UpdateMuteIcon() 
     {
         if (muteButtonImage == null)
         {
-            Debug.Log("[AudioControlUI] Missing mute button image");
+            // Debug.Log("[AudioControlUI] Missing mute button image");
             return;
         }
 

@@ -24,14 +24,14 @@ public class MainController : MonoBehaviour
         if (ky[muteKey].wasPressedThisFrame)
         {
             audioControl.OnMuteKeyGlobal();
-            Debug.Log("[MainController] M key pressed - Mute toggled");
+            // Debug.Log("[MainController] M key pressed - Mute toggled");
         }
 
         // Global open Information page
         if (ky[infoKey].wasPressedThisFrame)
         {
             settingsUI.OpenInformationPage();
-            Debug.Log("[MainController] I key pressed - Opening Information Page");
+            // Debug.Log("[MainController] I key pressed - Opening Information Page");
         }
     }
 }

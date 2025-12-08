@@ -58,8 +58,8 @@ public class BallOutOfBounds : MonoBehaviour
         // Store the original starting position
         originalPosition = transform.position;
 
-        Debug.Log($"[BallOutOfBounds] Monitoring ball position. Out of bounds below Y = {OutOfBoundsY}");
-        Debug.Log($"[BallOutOfBounds] Original position stored: {originalPosition}");
+        // Debug.Log($"[BallOutOfBounds] Monitoring ball position. Out of bounds below Y = {OutOfBoundsY}");
+        // Debug.Log($"[BallOutOfBounds] Original position stored: {originalPosition}");
     }
 
     void Update()
@@ -79,7 +79,7 @@ public class BallOutOfBounds : MonoBehaviour
         // Check if we hit any of the specified trigger colliders
         if (IsTriggerCollider(collision.collider))
         {
-            Debug.Log($"[BallOutOfBounds] Ball touched trigger collider: {collision.collider.name}");
+            // Debug.Log($"[BallOutOfBounds] Ball touched trigger collider: {collision.collider.name}");
             ReturnBallToTable();
         }
     }
@@ -92,7 +92,7 @@ public class BallOutOfBounds : MonoBehaviour
         // Check if we entered any of the specified trigger colliders
         if (IsTriggerCollider(other))
         {
-            Debug.Log($"[BallOutOfBounds] Ball entered trigger collider: {other.name}");
+            // Debug.Log($"[BallOutOfBounds] Ball entered trigger collider: {other.name}");
             ReturnBallToTable();
         }
     }
@@ -134,7 +134,7 @@ public class BallOutOfBounds : MonoBehaviour
             StartCoroutine(FlashBall());
         }
 
-        Debug.Log($"[BallOutOfBounds] Ball returned to table at {returnPos}");
+        // Debug.Log($"[BallOutOfBounds] Ball returned to table at {returnPos}");
     }
 
     /// <summary>
@@ -211,7 +211,7 @@ public class BallOutOfBounds : MonoBehaviour
     public void UpdateOriginalPosition()
     {
         originalPosition = transform.position;
-        Debug.Log($"[BallOutOfBounds] Original position updated to: {originalPosition}");
+        // Debug.Log($"[BallOutOfBounds] Original position updated to: {originalPosition}");
     }
 
     /// <summary>
@@ -220,7 +220,7 @@ public class BallOutOfBounds : MonoBehaviour
     public void UpdateOriginalPosition(Vector3 newOriginalPosition)
     {
         originalPosition = newOriginalPosition;
-        Debug.Log($"[BallOutOfBounds] Original position set to: {originalPosition}");
+        // Debug.Log($"[BallOutOfBounds] Original position set to: {originalPosition}");
     }
 
     /// <summary>

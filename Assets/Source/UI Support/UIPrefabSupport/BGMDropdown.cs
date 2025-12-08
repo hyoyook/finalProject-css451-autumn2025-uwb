@@ -62,7 +62,7 @@ public class BGMDropdown : MonoBehaviour
     {
         if (mTracks == null || mTracks.Length == 0)
         {
-            Debug.Log("[BGMDropdown] Nothing to play");
+            // Debug.Log("[BGMDropdown] Nothing to play");
             return;
         }
 

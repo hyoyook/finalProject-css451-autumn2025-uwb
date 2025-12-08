@@ -336,10 +336,10 @@ public partial class CueStickController : MonoBehaviour
         // Debug: Verify hierarchy is being updated
         if (Keyboard.current != null && Keyboard.current.f1Key.wasPressedThisFrame)
         {
-            Debug.Log("=== SceneNode Hierarchy Debug ===");
-            Debug.Log($"Root Position: {CueHierarchy.transform.position}");
-            Debug.Log($"Root Rotation: {CueHierarchy.transform.rotation.eulerAngles}");
-            DebugPrintHierarchy(CueHierarchy, 0);
+            // Debug.Log("=== SceneNode Hierarchy Debug ===");
+            // Debug.Log($"Root Position: {CueHierarchy.transform.position}");
+            // Debug.Log($"Root Rotation: {CueHierarchy.transform.rotation.eulerAngles}");
+            // DebugPrintHierarchy(CueHierarchy, 0);
         }
     }
 

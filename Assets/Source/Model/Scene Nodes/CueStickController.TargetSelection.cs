@@ -225,10 +225,10 @@ public partial class CueStickController
         
         if (selectableObjects.Length > 0)
         {
-            Debug.Log($"[CueStickController] Found {selectableObjects.Length} selectable objects:");
+            // Debug.Log($"[CueStickController] Found {selectableObjects.Length} selectable objects:");
             for (int i = 0; i < selectableObjects.Length; i++)
             {
-                Debug.Log($"  [{i}] {selectableObjects[i].name}");
+                // Debug.Log($"  [{i}] {selectableObjects[i].name}");
             }
             
             // Set current index to the object that matches CueBallTarget, or start at -1

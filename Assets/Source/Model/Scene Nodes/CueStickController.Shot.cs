@@ -24,6 +24,26 @@ public partial class CueStickController
     [Tooltip("Which axis to draw along (local space of the node)")]
     public Vector3 DrawAxis = new Vector3(1, 0, 0); // Default: +X
 
+    [Header("Jump Shot Settings")]
+    [Tooltip("Current elevation angle of cue (0 = horizontal, + = angled down for jump)")]
+    [Range(-30f, 30f)]
+    public float CueElevation = 0f;
+
+    [Tooltip("Speed of elevation adjustment (Q/E keys)")]
+    public float ElevationSpeed = 30f;
+
+    [Header("Spin Settings")]
+    [Tooltip("Backspin/Topspin strength (0 = none, higher = more spin)")]
+    [Range(0f, 50f)]
+    public float SpinStrength = 20f;
+
+    [Tooltip("Current spin setting (-1 = backspin, 0 = none, +1 = topspin)")]
+    [Range(-1f, 1f)]
+    public float SpinAmount = 0f;
+
+    [Tooltip("Speed of spin adjustment (W/S keys)")]
+    public float SpinAdjustSpeed = 1f;
+
     // Shot state
     private float currentDrawDistance = 0.0f;
     private float chargedPower = 0.0f;
@@ -75,6 +95,34 @@ public partial class CueStickController
 
         if (Keyboard.current == null)
             return;
+
+        // Handle cue elevation adjustment (Q/E keys) - only when not charging/striking
+        if (!isCharging && !isStriking)
+        {
+            if (Keyboard.current.qKey.isPressed)
+            {
+                CueElevation -= ElevationSpeed * Time.deltaTime;
+            }
+            if (Keyboard.current.eKey.isPressed)
+            {
+                CueElevation += ElevationSpeed * Time.deltaTime;
+            }
+            CueElevation = Mathf.Clamp(CueElevation, -30f, 30f);
+        }
+
+        // Handle spin adjustment (W/S keys) - only when not charging/striking
+        if (!isCharging && !isStriking)
+        {
+            if (Keyboard.current.wKey.isPressed)
+            {
+                SpinAmount += SpinAdjustSpeed * Time.deltaTime;
+            }
+            if (Keyboard.current.sKey.isPressed)
+            {
+                SpinAmount -= SpinAdjustSpeed * Time.deltaTime;
+            }
+            SpinAmount = Mathf.Clamp(SpinAmount, -1f, 1f);
+        }
 
         // Handle charging (holding space)
         if (Keyboard.current.spaceKey.isPressed && !isStriking)
@@ -168,7 +216,7 @@ public partial class CueStickController
             {
                 if (ShowHierarchyDebug)
                 {
-                    Debug.Log("Strike missed - reached max forward distance without hitting ball");
+                    // Debug.Log("Strike missed - reached max forward distance without hitting ball");
                 }
                 // Start returning to original position
                 hasHitBall = true; // Use this flag to trigger return phase
@@ -240,34 +288,85 @@ public partial class CueStickController
     }
 
     /// <summary>
-    /// Called when cue tip hits the cue ball
+    /// Called when cue tip hits the cue ball - REALISTIC CONTACT POINT PHYSICS
+    /// Jump shots happen when hitting BELOW center, spin from hit height
     /// </summary>
     private void OnCueBallHit(SceneNode drawNode)
     {
-        Debug.Log($"*** CUE BALL HIT! Power: {chargedPower:F1} ***");
-
-        // Calculate strike direction (from cue tip toward ball center)
-        Vector3 vectorToBall = CueBallTarget.position - CueTip.position;
-        vectorToBall.y = 0; // Flatten the force to keep it horizontal
-        Vector3 strikeDirection = vectorToBall.normalized;
-
-        // Apply force to cue ball if it has a Rigidbody
         Rigidbody ballRb = CueBallTarget.GetComponent<Rigidbody>();
-        if (ballRb != null)
+        if (ballRb == null) return;
+
+        ballRb.isKinematic = false;
+
+        // === 1. CALCULATE CONTACT POINT ===
+        Vector3 ballCenter = CueBallTarget.position;
+        Vector3 cueTipPos = CueTip.position;
+        float ballRadius = CueBallTarget.localScale.x * 0.5f;
+
+        // Find where cue tip touches ball surface
+        Vector3 toBall = ballCenter - cueTipPos;
+        Vector3 contactPoint = cueTipPos + toBall.normalized * toBall.magnitude;
+
+        // === 2. VERTICAL OFFSET (-1 = bottom, 0 = center, +1 = top) ===
+        float verticalOffset = (contactPoint.y - ballCenter.y) / ballRadius;
+        verticalOffset = Mathf.Clamp(verticalOffset, -1f, 1f);
+
+        // === 3. HORIZONTAL DIRECTION (flattened) ===
+        Vector3 horizontalDir = toBall;
+        horizontalDir.y = 0;
+        horizontalDir.Normalize();
+
+        // === 4. CALCULATE FORCE DIRECTION ===
+        Vector3 forceDirection = horizontalDir;
+        
+        // JUMP SHOT: Only if hit BELOW center (negative offset) and below threshold
+        float jumpThreshold = 0.25f; // Must hit lower than this to jump
+        if (verticalOffset < -jumpThreshold)
         {
-            ballRb.isKinematic = false;
-            ballRb.AddForce(strikeDirection * chargedPower, ForceMode.Impulse);
-            Debug.Log($"Applied force: {strikeDirection * chargedPower}");
+            // The lower the hit, the more upward force
+            float jumpAmount = Mathf.Abs(verticalOffset + jumpThreshold); // 0 to ~0.75
+            float upwardComponent = jumpAmount * 2.5f; // Jump force multiplier
+            
+            forceDirection = (horizontalDir + Vector3.up * upwardComponent).normalized;
+            
+            Debug.Log($"🏀 JUMP SHOT! Vertical Offset: {verticalOffset:F2}, Upward: {upwardComponent:F2}");
         }
 
-        // *** INSTANT VANISH ***
-        // Hide the stick immediately so the ball can't bounce back and hit it
+        // === 5. APPLY FORCE AT CONTACT POINT ===
+        // AddForceAtPosition automatically creates realistic torque/spin
+        Vector3 forceVector = forceDirection * chargedPower;
+        ballRb.AddForceAtPosition(forceVector, contactPoint, ForceMode.Impulse);
+
+        // === 6. EXPLICIT SPIN (enhanced realism) ===
+        // Spin based on vertical hit location:
+        // - Below center = BACKSPIN (negative)
+        // - Above center = TOPSPIN (positive)
+        // - At center = NO SPIN
+        Vector3 spinAxis = Vector3.Cross(horizontalDir, Vector3.up).normalized;
+        float spinMagnitude = -verticalOffset * SpinStrength; // Negative = backspin opposes motion
+        ballRb.angularVelocity = spinAxis * spinMagnitude;
+
+        // === 7. DEBUG OUTPUT ===
+        string spinType = "FLAT";
+        if (verticalOffset < -0.1f) spinType = "BACKSPIN";
+        else if (verticalOffset > 0.1f) spinType = "TOPSPIN";
+        
+        Debug.Log($"⚡ HIT! Power: {chargedPower:F1} | Offset: {verticalOffset:F2} | {spinType} | Spin: {spinMagnitude:F1} rad/s");
+        
+        // Visual debug lines
+        if (ShowHierarchyDebug)
+        {
+            Debug.DrawLine(ballCenter, contactPoint, Color.yellow, 2f);
+            Debug.DrawRay(contactPoint, forceDirection * 0.5f, Color.red, 2f);
+            Debug.DrawRay(ballCenter, spinAxis * 0.3f, Color.cyan, 2f);
+        }
+
+        // === 8. HIDE STICK ===
         if (CueHierarchy != null)
         {
             CueHierarchy.gameObject.SetActive(false);
         }
 
-        // Mark that we've hit the ball - this triggers the return phase
         hasHitBall = true;
     }
 
@@ -290,7 +389,7 @@ public partial class CueStickController
 
         if (ShowHierarchyDebug)
         {
-            Debug.Log("Strike complete");
+            // Debug.Log("Strike complete");
         }
     }
 
@@ -314,4 +413,7 @@ public partial class CueStickController
     public bool IsCharging => isCharging;
     public bool IsStriking => isStriking;
     public float DrawPercentage => MaxDrawDistance > 0 ? currentDrawDistance / MaxDrawDistance : 0;
+    public float CurrentElevation => CueElevation;
+    public float CurrentSpin => SpinAmount;
+    public string SpinType => SpinAmount < -0.01f ? "Backspin" : SpinAmount > 0.01f ? "Topspin" : "No Spin";
 }
