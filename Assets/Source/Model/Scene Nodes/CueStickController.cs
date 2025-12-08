@@ -71,6 +71,7 @@ public partial class CueStickController : MonoBehaviour
     // References to disable physics
     private Collider[] stickColliders;
     private Rigidbody stickRb;
+    private Collider cueTipCollider;  
 
     private void Start()
     {
@@ -79,6 +80,16 @@ public partial class CueStickController : MonoBehaviour
         {
             stickColliders = CueHierarchy.GetComponentsInChildren<Collider>();
             stickRb = CueHierarchy.GetComponent<Rigidbody>();
+            
+            // Store CueTip collider reference so we DON'T disable it
+            if (CueTip != null)
+            {
+                cueTipCollider = CueTip.GetComponent<Collider>();
+                if (cueTipCollider != null)
+                {
+                    Debug.Log($"[CueStickController] Found CueTip collider, will keep it enabled for hit detection");
+                }
+            }
             
             // SAFETY 2: Make stick kinematic so gravity doesn't affect it
             if (stickRb != null) stickRb.isKinematic = true; 
@@ -345,6 +356,7 @@ public partial class CueStickController : MonoBehaviour
 
     /// <summary>
     /// Enable or disable colliders on the cue stick
+    /// IMPORTANT: CueTip collider is always kept enabled for hit detection!
     /// </summary>
     public void SetCollidersEnabled(bool enabled)
     {
@@ -352,7 +364,18 @@ public partial class CueStickController : MonoBehaviour
         {
             foreach (var col in stickColliders)
             {
-                if(col != null) col.enabled = enabled;
+                if (col != null)
+                {
+                    // SPECIAL CASE: Never disable the CueTip collider (needed for CueTipHit.cs)
+                    if (col == cueTipCollider)
+                    {
+                        col.enabled = true;  // Always keep CueTip enabled!
+                    }
+                    else
+                    {
+                        col.enabled = enabled;  // Disable other colliders while aiming
+                    }
+                }
             }
         }
     }

@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 140298499}
   - component: {fileID: 140298504}
   - component: {fileID: 140298505}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: CueTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1078,7 +1078,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5786716
+  m_Radius: 0.69
   m_Center: {x: 0, y: -0.026887655, z: 0}
 --- !u!23 &140298501
 MeshRenderer:
@@ -1087,7 +1087,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140298498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1145,7 +1145,7 @@ Transform:
   m_GameObject: {fileID: 140298498}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4571, y: -0.3182, z: -0}
+  m_LocalPosition: {x: -4.4611, y: -0.3192, z: -0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1165,7 +1165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CueTipHit
   forceMultiplier: 1
   minHitSpeed: 5
-  targetTag: CueBall
+  targetTag: Selectable
+  spinStrength: 30
+  jumpForceMultiplier: 2
+  jumpThreshold: 0.3
+  showContactPoint: 1
+  debugSphereSize: 0.05
+  cueController: {fileID: 878432765}
 --- !u!54 &140298505
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1188,8 +1194,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -4039,6 +4045,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!21 &553224050
 Material:
   serializedVersion: 8
@@ -6199,6 +6209,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &709537982
 GameObject:
   m_ObjectHideFlags: 0
@@ -7255,6 +7269,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &780177864
 GameObject:
   m_ObjectHideFlags: 0
@@ -8328,10 +8346,15 @@ MonoBehaviour:
   ShowLaserDebugLine: 1
   LaserLineColor: {r: 1, g: 0, b: 0, a: 1}
   MaxDrawDistance: 2
-  DrawSpeed: 4
+  DrawSpeed: 8.42
   StrikeSpeed: 15
   PowerMultiplier: 45
   DrawAxis: {x: 1, y: 0, z: 0}
+  CueElevation: 0
+  ElevationSpeed: 30
+  SpinStrength: 20
+  SpinAmount: 0
+  SpinAdjustSpeed: 1
   SelectableTag: Selectable
   RaycastCamera: {fileID: 330585545}
   EnableHoverFeedback: 1
@@ -10383,6 +10406,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1085247716
 GameObject:
   m_ObjectHideFlags: 0
@@ -10923,6 +10950,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1001 &1111979705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11073,6 +11104,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!4 &1158418199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b219c92ce34b33e48bd80b4e0e820c97, type: 3}
@@ -11315,6 +11350,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1197928866
 GameObject:
   m_ObjectHideFlags: 0
@@ -12901,6 +12940,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1394360823
 GameObject:
   m_ObjectHideFlags: 0
@@ -13967,6 +14010,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1455161547
 GameObject:
   m_ObjectHideFlags: 0
@@ -16004,6 +16051,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1734769191
 GameObject:
   m_ObjectHideFlags: 0
@@ -16109,6 +16160,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1785889976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5033021387351474078, guid: 11e2e5ed01b618c4b9106bc9703e69d8, type: 3}
@@ -16173,6 +16228,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1799298952
 GameObject:
   m_ObjectHideFlags: 0
@@ -17092,6 +17151,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1878765502
 GameObject:
   m_ObjectHideFlags: 0
@@ -17243,6 +17306,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!224 &1895016410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5661463879392340456, guid: b38dcb8ad3828104981e72f092f177b6, type: 3}
@@ -17432,6 +17499,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &1961834694
 GameObject:
   m_ObjectHideFlags: 0
@@ -18748,6 +18819,10 @@ MonoBehaviour:
   StopVelocityThreshold: 0.1
   StopAngularVelocityThreshold: 0.1
   GravityMultiplier: 2
+  EnableAdvancedSpinPhysics: 0
+  SpinFrictionFactor: 0.3
+  TableHeight: 2
+  TableCheckDistance: 0.2
 --- !u!1 &2112587465
 GameObject:
   m_ObjectHideFlags: 0

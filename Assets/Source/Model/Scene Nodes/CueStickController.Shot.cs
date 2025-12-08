@@ -204,11 +204,13 @@ public partial class CueStickController
             drawNode.transform.localRotation = originalNodeRotation;
 
             // Check for collision with cue ball
-            if (CheckCueBallHit())
-            {
-                OnCueBallHit(drawNode);
-                return;
-            }
+            // NOTE: Hit detection is now handled by CueTipHit.cs (trigger-based)
+            // This manual check is disabled to avoid double-hits
+            // if (CheckCueBallHit())
+            // {
+            //     OnCueBallHit(drawNode);
+            //     return;
+            // }
 
             // Safety: limit how far past original we can go (to avoid going through the ball)
             float maxForwardDistance = -MaxDrawDistance; // Can go as far forward as we could go back
@@ -318,7 +320,7 @@ public partial class CueStickController
 
         // === 4. CALCULATE FORCE DIRECTION ===
         Vector3 forceDirection = horizontalDir;
-        
+ 
         // JUMP SHOT: Only if hit BELOW center (negative offset) and below threshold
         float jumpThreshold = 0.25f; // Must hit lower than this to jump
         if (verticalOffset < -jumpThreshold)
@@ -404,6 +406,27 @@ public partial class CueStickController
             EndStrike(drawNode);
             originalNodePosition = drawNode.transform.localPosition;
             originalNodeRotation = drawNode.transform.localRotation;
+        }
+    }
+
+    /// <summary>
+    /// Called by CueTipHit when a trigger-based collision occurs
+    /// This hides the cue stick and marks that the ball was hit
+    /// </summary>
+    public void NotifyBallHit()
+    {
+        // Hide the cue stick immediately
+        if (CueHierarchy != null)
+        {
+            CueHierarchy.gameObject.SetActive(false);
+        }
+
+        // Mark that we've hit the ball - this triggers the return phase
+        hasHitBall = true;
+
+        if (ShowHierarchyDebug)
+        {
+            Debug.Log("Ball hit notification received from CueTipHit");
         }
     }
 
