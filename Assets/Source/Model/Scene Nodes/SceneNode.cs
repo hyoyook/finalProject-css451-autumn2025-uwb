@@ -31,9 +31,13 @@ public class SceneNode : MonoBehaviour
     // This must be called _BEFORE_ each draw!! 
     public void CompositeXform(ref Matrix4x4 parentXform)
     {
+        // NodeOrigin represents where this node is positioned relative to parent
+        // The local transform (position, rotation, scale) is applied around the local origin
         Matrix4x4 orgT = Matrix4x4.Translate(NodeOrigin);
         Matrix4x4 trs = Matrix4x4.TRS(transform.localPosition, transform.localRotation, transform.localScale);
 
+        // Order: parent -> move to NodeOrigin position -> apply local transform
+        // This positions the node at NodeOrigin in parent space, then applies local transforms
         mCombinedParentXform = parentXform * orgT * trs;
 
         // propagate to all children
