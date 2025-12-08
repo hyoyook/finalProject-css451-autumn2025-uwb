@@ -41,6 +41,19 @@ public class BallPhysics : MonoBehaviour
         Debug.Log($"[BallPhysics] {gameObject.name} initialized with LinearDrag={LinearDrag}, AngularDrag={AngularDrag}");
     }
 
+    /// <summary>
+    /// Called when values are changed in the Inspector (Editor and Runtime)
+    /// </summary>
+    private void OnValidate()
+    {
+        // Update rigidbody if it exists (works in play mode)
+        if (rb != null)
+        {
+            rb.linearDamping = LinearDrag;
+            rb.angularDamping = AngularDrag;
+        }
+    }
+
     private void FixedUpdate()
     {
         // Apply custom gravity if multiplier is not 1
@@ -60,6 +73,7 @@ public class BallPhysics : MonoBehaviour
         {
             rb.angularVelocity = Vector3.zero;
         }
+        Debug.Log($"[BallPhysics] Linear Damping: {rb.linearDamping}, Angular Damping: {rb.angularDamping}");
     }
 
     /// <summary>
