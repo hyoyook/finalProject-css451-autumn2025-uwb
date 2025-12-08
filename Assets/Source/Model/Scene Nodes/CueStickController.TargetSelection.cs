@@ -295,9 +295,7 @@ public partial class CueStickController
         CueBallTarget = newTarget;
         Debug.Log($"Cue target switched to: {newTarget.name}");
 
-        // Optional: Reset orbit angles when switching targets
-        // Uncomment if you want the cue to reset to a default angle each time
-        // ResetAngles();
+
     }
 
     /// <summary>
