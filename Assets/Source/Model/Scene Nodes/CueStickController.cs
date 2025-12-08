@@ -423,13 +423,4 @@ public partial class CueStickController : MonoBehaviour
         return angle;
     }
 
-    /// <summary>
-    /// Sets the orbit angles directly (for resetting scripted movements)
-    /// </summary>
-    public void SetOrbitAngles(float yaw, float pitch)
-    {
-        currentYaw = NormalizeAngle(yaw);
-        currentPitch = Mathf.Clamp(pitch, MinPitchAngle, MaxPitchAngle);
-    }
-    
 }
