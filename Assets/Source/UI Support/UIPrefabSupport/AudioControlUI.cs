@@ -62,7 +62,7 @@ public partial class AudioControlUI : MonoBehaviour
             lastMasterPercent = v;   // update baseline
             SetMixerVolume(masterParam, v);
             UpdateMuteIcon();
-            Debug.Log("[AudioControlUI] Slider changed -> auto unmuted.");
+            // Debug.Log("[AudioControlUI] Slider changed -> auto unmuted.");
             return;
         }
 

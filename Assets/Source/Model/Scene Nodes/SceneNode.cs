@@ -43,18 +43,18 @@ public class SceneNode : MonoBehaviour
             {
                 if (child != null)
                 {
-                    Debug.Log("CompositeXform called on child: " + child.gameObject.name);
+                    // Debug.Log("CompositeXform called on child: " + child.gameObject.name);
                     child.CompositeXform(ref mCombinedParentXform);
                 }
                 else
                 {
-                    Debug.LogError("Child is null in ChildrenList of: " + gameObject.name);
+                    // Debug.LogError("Child is null in ChildrenList of: " + gameObject.name);
                 }
             }
         }
         else
         {
-            Debug.LogError("ChildrenList is null for: " + gameObject.name);
+            // Debug.LogError("ChildrenList is null for: " + gameObject.name);
         }
 
         // disseminate to primitives
@@ -64,7 +64,7 @@ public class SceneNode : MonoBehaviour
             {
                 if (p != null)
                 {
-                    Debug.Log($"LoadShaderMatrix called on: {gameObject.name}");
+                    // Debug.Log($"LoadShaderMatrix called on: {gameObject.name}");
                     p.LoadShaderMatrix(ref mCombinedParentXform);
                 }
                 else

@@ -85,56 +85,11 @@ public partial class CueStickController
     }
 
     /// <summary>
-    /// Get a node by its depth in the hierarchy (0 = root, 1 = first child, etc.)
-    /// </summary>
-    public SceneNode GetNodeByDepth(int depth)
-    {
-        if (depth >= 0 && depth < allNodes.Count)
-        {
-            return allNodes[depth];
-        }
-        return null;
-    }
-
-    /// <summary>
-    /// Get a node by name
-    /// </summary>
-    public SceneNode GetNodeByName(string name)
-    {
-        if (nodeNameToIndex.TryGetValue(name, out int index))
-        {
-            return allNodes[index];
-        }
-        return null;
-    }
-
-    /// <summary>
     /// Get the deepest node in the hierarchy (typically the Hand)
     /// </summary>
     public SceneNode GetDeepestNode()
     {
         return deepestNode;
-    }
-
-    /// <summary>
-    /// Get all nodes as a list (useful for UI dropdowns)
-    /// </summary>
-    public List<SceneNode> GetAllNodes()
-    {
-        return allNodes;
-    }
-
-    /// <summary>
-    /// Get node names for UI dropdown
-    /// </summary>
-    public string[] GetNodeNames()
-    {
-        string[] names = new string[allNodes.Count];
-        for (int i = 0; i < allNodes.Count; i++)
-        {
-            names[i] = allNodes[i].name;
-        }
-        return names;
     }
 
     /// <summary>
@@ -150,18 +105,6 @@ public partial class CueStickController
                 Debug.Log($"Selected node: {allNodes[selectedNodeIndex].name}");
             }
         }
-    }
-
-    /// <summary>
-    /// Get the currently selected node
-    /// </summary>
-    public SceneNode GetSelectedNode()
-    {
-        if (selectedNodeIndex >= 0 && selectedNodeIndex < allNodes.Count)
-        {
-            return allNodes[selectedNodeIndex];
-        }
-        return null;
     }
 
     /// <summary>
