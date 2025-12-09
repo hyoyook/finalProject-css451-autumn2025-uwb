@@ -4,49 +4,82 @@ using System.Collections.Generic;
 
 public class LightModeDropdown : MonoBehaviour
 {
-    [Header("References")]
+    public LightControl lightControl;
     public TMP_Dropdown dropdown;
-    public LightControl lightControl; 
 
-    void Start()
+    // label to display
+    public string dayLabel       = "Day";
+    public string nightLabel     = "Night";
+    public string spotlightLabel = "Spotlight";
+
+    // dictionary: index-> name
+    private Dictionary<int, string> modeNames;
+
+    private bool _initializing = false;
+
+    private void Awake()
     {
-        // 1. Debugging References
-        if (dropdown == null)
-        {
-            Debug.LogError("❌ [LightModeDropdown] STOP! You forgot to assign the 'Dropdown' in the Inspector.");
-            return;
-        }
         if (lightControl == null)
         {
-            Debug.LogError("❌ [LightModeDropdown] STOP! You forgot to assign 'Light Control' (GameManager) in the Inspector.");
+            Debug.LogError("[LightModeDropdown] LightControl reference is missing");
+            enabled = false;
             return;
         }
 
-        Debug.Log("✅ [LightModeDropdown] Setup started...");
+        if (dropdown == null)
+            dropdown = GetComponent<TMP_Dropdown>();
 
-        // 2. Clear and Build List
+        if (dropdown == null)
+        {
+            Debug.LogError("[LightModeDropdown] TMP_Dropdown not found");
+            enabled = false;
+            return;
+        }
+
+        // dictionary
+        modeNames = new Dictionary<int, string>()
+        {
+            { 0, dayLabel },
+            { 1, nightLabel },
+            { 2, spotlightLabel }
+        };
+
+        // setup
+        _initializing = true;
+
         dropdown.ClearOptions();
-        List<string> options = new List<string> { "Day", "Night", "Spotlight" };
-        dropdown.AddOptions(options);
-        Debug.Log("✅ [LightModeDropdown] Options added: Day, Night, Spotlight");
+        dropdown.options.Add(new TMP_Dropdown.OptionData(dayLabel));
+        dropdown.options.Add(new TMP_Dropdown.OptionData(nightLabel));
+        dropdown.options.Add(new TMP_Dropdown.OptionData(spotlightLabel));
 
-        // 3. Connect Listener
+        dropdown.SetValueWithoutNotify(0);
+
         dropdown.onValueChanged.RemoveAllListeners();
-        dropdown.onValueChanged.AddListener(OnSelectionChanged);
+        dropdown.onValueChanged.AddListener(OnDropdownChanged);
 
-        // 4. Force Initial State (Default to Night/1 to verify change)
-        dropdown.SetValueWithoutNotify(1); 
-        OnSelectionChanged(1); 
+        _initializing = false;
+
+        // set initial mode
+        OnDropdownChanged(dropdown.value);
+
+        Debug.Log("[LightModeDropdown] Initialized!");
     }
 
-    private void OnSelectionChanged(int index)
+    public void OnDropdownChanged(int index)
     {
-        Debug.Log($"👉 [LightModeDropdown] Player selected option: {index}");
-        
-        if (lightControl != null)
+        if (_initializing) return;
+        if (lightControl == null) return;
+
+        if (modeNames.TryGetValue(index, out string modeName))
         {
-            lightControl.SetLightMode(index);
-            Debug.Log($"✅ [LightModeDropdown] Sent command to LightControl!");
+            Debug.Log($"[LightModeDropdown] Mode changed to ({index}) {modeName}");
         }
+        else
+        {
+            Debug.Log($"[LightModeDropdown] Mode index {index} (Unknown)");
+        }
+
+        // toss it to LightControl
+        lightControl.SetLightMode(index);
     }
 }
