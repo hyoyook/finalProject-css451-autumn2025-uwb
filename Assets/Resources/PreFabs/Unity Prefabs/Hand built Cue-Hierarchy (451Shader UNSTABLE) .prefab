@@ -201,9 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &1322472047180604654
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,9 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &2622889959549816316
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,9 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &2991740390372867704
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,9 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &4075600590599537384
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,9 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &5357471419737073072
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,9 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &5572479742293534611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,9 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &5640477813431868553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,9 +1291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &8005368263036316647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,9 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
 --- !u!1 &8987608392089102178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,6 +1561,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1268b75160d7a844592ba1b74450a79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodePrimitive
-  MyColor: {r: 0.1, g: 0.1, b: 0.2, a: 1}
   Pivot: {x: 0, y: 0, z: 0}
-  UseStandardTransform: 0
