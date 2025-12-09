@@ -147,4 +147,35 @@ public class TextureXfromControl : XfromControl
         return;
     }
     #endregion
+
+    #region button
+    // only reset UV transform but NOT change the dropdown selection
+    public void OnResetTexture()
+    {
+        if (tableCloth == null)
+            return;
+
+        // reset UVs and internal parameters
+        tableCloth.ResetToBaseUV();
+
+        // reset cached values to initial state
+        mTranslate = Vector3.zero;
+        mScale = Vector3.one;
+        mRotate = Vector3.zero;
+
+        // reinitialize sliders to whatever mode it is active
+        if (T.isOn)
+        { 
+            SetToTranslation(true); 
+        }
+        else if (S.isOn)
+        {
+            SetToScaling(true); 
+        }
+        else if (R.isOn)
+        {
+            SetToRotation(true); 
+        }
+    }
+    #endregion
 }
