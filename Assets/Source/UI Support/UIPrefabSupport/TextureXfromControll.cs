@@ -7,8 +7,8 @@ public class TextureXfromControl : XfromControl
 
     // store the last values for each mode (TSR)
     private Vector3 mTranslate = Vector3.zero;  // only X,Y used
-    private Vector3 mScale = Vector3.one;   // only X,Y used
-    private Vector3 mRotate = Vector3.zero;  // only Z used (degrees)
+    private Vector3 mScale     = Vector3.one;   // only X,Y used
+    private Vector3 mRotate    = Vector3.zero;  // only Z used (degrees)
 
     void Start()
     {
@@ -24,6 +24,11 @@ public class TextureXfromControl : XfromControl
         R.isOn = true;
         S.isOn = false;
         SetToRotation(true);
+
+        //if (tableCloth != null && ObjectName != null)
+        //{
+        //    ObjectName.text = "Texture: " + tableCloth.gameObject.name;
+        //}
     }
 
     #region slide bars initialization
@@ -41,14 +46,14 @@ public class TextureXfromControl : XfromControl
 
         X.InitSliderRange(-5f, 5f, mTranslate.x);
         Y.InitSliderRange(-5f, 5f, mTranslate.y);
-        Z.InitSliderRange(0f, 0f, 0f);   // locked at 0
+        Z.InitSliderRange(-5f, 5f, mTranslate.z);
     }
 
     void SetToScaling(bool v)
     {
         if (!v || tableCloth == null)
-        {
-            return;
+        { 
+            return; 
         }
 
         mScale.x = tableCloth.UV_Scale_X;
@@ -57,7 +62,7 @@ public class TextureXfromControl : XfromControl
 
         X.InitSliderRange(0.1f, 5f, mScale.x);
         Y.InitSliderRange(0.1f, 5f, mScale.y);
-        Z.InitSliderRange(1f, 1f, 1f);   // locked at 1
+        Z.InitSliderRange(0.1f, 5f, mScale.z);
     }
 
     void SetToRotation(bool v)
@@ -133,37 +138,6 @@ public class TextureXfromControl : XfromControl
             tableCloth.UV_Scale_Y = v;
         }
         // T mode: Z unused
-    }
-    #endregion
-
-    #region button
-    // only reset UV transform but NOT change the dropdown selection
-    public void OnResetTexture()
-    {
-        if (tableCloth == null)
-            return;
-
-        // reset UVs and internal parameters
-        tableCloth.ResetToBaseUV();
-
-        // reset cached values to initial state
-        mTranslate = Vector3.zero;
-        mScale = Vector3.one;
-        mRotate = Vector3.zero;
-
-        // reinitialize sliders to whatever mode it is active
-        if (T.isOn)
-        { 
-            SetToTranslation(true); 
-        }
-        else if (S.isOn)
-        {
-            SetToScaling(true); 
-        }
-        else if (R.isOn)
-        {
-            SetToRotation(true); 
-        }
     }
     #endregion
 

@@ -36,12 +36,12 @@ public class UIManager : MonoBehaviour
         {
             if (!rootPanel.activeSelf)
             {
-                Debug.Log("[UIManager] ESC key pressed. Opening Settings");
+                // Debug.Log("[UIManager] ESC key pressed. Opening Settings");
                 OpenSettings();
             }
             else
             {
-                Debug.Log("[UIManager] ESC key pressed. Closing Settings");
+                // Debug.Log("[UIManager] ESC key pressed. Closing Settings");
                 CloseSettings();
             }
         }
@@ -87,7 +87,7 @@ public class UIManager : MonoBehaviour
             rootPanel.SetActive(true);
         }
         ShowOnly(informationPage);
-        Debug.Log("[UIManager] Information Page opened");
+        // Debug.Log("[UIManager] Information Page opened");
     }
 
     public void ResetScene() 

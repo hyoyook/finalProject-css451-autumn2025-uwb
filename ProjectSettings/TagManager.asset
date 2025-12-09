@@ -9,6 +9,7 @@ TagManager:
   - CueStick
   - Selectable
   - Balls
+  - Bottom
   layers:
   - Default
   - TransparentFX

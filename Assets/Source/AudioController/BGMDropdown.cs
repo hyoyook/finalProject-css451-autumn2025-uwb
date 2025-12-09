@@ -1,65 +1,55 @@
 using System.Collections.Generic;
-using TMPro;
-using UnityEngine.Audio;
 using UnityEngine;
+using TMPro;
 
 public class BGMDropdown : MonoBehaviour
 {
-    public TMP_Dropdown     dropdown;
-    public AudioMixerGroup  bgmGroup; 
-
-    private AudioClip[]     mTracks;
-    private AudioSource     mSource;
-
+    public TMP_Dropdown dropdown;
+    public Transform playlist;
+    
+    private AudioSource[] mTracks;
     private int mCurrIndex = -1;
-    private bool mIsPaused = false;     // for play/pause button
 
+    // source: https://discussions.unity.com/t/how-do-you-find-an-inactive-game-object/859182/2
     private void Awake()
     {
-        if (dropdown == null)
+        if (playlist == null)
         {
-            Debug.LogError("[BGMDropdown] dropdown is not assigned");
+            Debug.LogError("[BGMDropdown] Playlist is not assigned");
             return;
         }
-        
-        mTracks = Resources.LoadAll<AudioClip>("Audio/Playlist");
 
+        // find all AudioSource in the playlist
+        mTracks = playlist.GetComponentsInChildren<AudioSource>(includeInactive: true);
         if (mTracks == null || mTracks.Length == 0)
         {
-            Debug.LogError("[BGMDropdown] No AudioClips found in Resources/Audio/Playlist/");
+            Debug.LogError("[BGMPlaylistUI] No AudioSource found in the playlist");
             return;
         }
 
-        // audioSource on this GameObject
-        mSource = gameObject.AddComponent<AudioSource>();
-        mSource.playOnAwake = false;
-        mSource.loop = false;
 
-        // output audio
-        if (bgmGroup != null)
-        {
-            mSource.outputAudioMixerGroup = bgmGroup;
-        }
-        else 
-        {
-            Debug.LogError("[BGMDropdown] No OutputAudioMixerGroup(bgmGroup) assigned");
-        }
-
-        // Build dropdown options from clip names
+        // build dropdown options
         dropdown.onValueChanged.AddListener(OnDropdownChanged);
 
         var options = new List<TMP_Dropdown.OptionData>();
-        foreach (var track in mTracks)
+        foreach (var src in mTracks)
         {
-            string label = (track != null) ? track.name : "(Missing Clip)";
+            string label;
+            if (src != null && src.clip != null)
+            {
+                label = src.clip.name;
+            }
+            else
+            {
+                label = src.gameObject.name;
+            }
             options.Add(new TMP_Dropdown.OptionData(label));
         }
 
         dropdown.ClearOptions();
         dropdown.AddOptions(options);
 
-        // play a random track
-        PlayTrack(GetRandomTrackIndex());
+        PlayTrack(0);
     }
 
     private void OnDropdownChanged(int index)
@@ -67,43 +57,45 @@ public class BGMDropdown : MonoBehaviour
         PlayTrack(index);
     }
 
-    #region PlayTracks
-
     // ChatGPT: "play one track at a time, update texts to show curr playing track title" 
     private void PlayTrack(int index)
     {
         if (mTracks == null || mTracks.Length == 0)
         {
-            Debug.Log("[BGMDropdown] Nothing to play");
+            // Debug.Log("[BGMDropdown] Nothing to play");
             return;
         }
 
         index = Mathf.Clamp(index, 0, mTracks.Length - 1);
 
-        AudioClip clip = mTracks[index];
-        if (clip == null)
+        // stop previous if any
+        if (mCurrIndex >= 0 && mCurrIndex < mTracks.Length)
         {
-            Debug.LogWarning($"[BGMDropdown] Clip at index {index} is NULL");
-            return;
+            var prev = mTracks[mCurrIndex];
+            if (prev != null)
+                prev.Stop();
         }
 
-        // stop curr if any is playing
-        if (mSource.isPlaying)
+        // stop all others just to be safe
+        for (int i = 0; i < mTracks.Length; i++)
         {
-            mSource.Stop();
+            if (i == index) continue;
+            if (mTracks[i] != null)
+                mTracks[i].Stop();
         }
 
-        mSource.clip = clip;
-        mSource.Play();
+        // play new one
+        var srcNew = mTracks[index];
+        if (srcNew != null)
+            srcNew.Play();
 
         mCurrIndex = index;
-        mIsPaused = false;
 
-        // update text
+        // update text to "Currently Playing: XYZ"
         if (dropdown != null && dropdown.captionText != null)
         {
             string label = dropdown.options[index].text;
-            dropdown.captionText.text = label;
+            dropdown.captionText.text = $"{label}";
         }
 
         // keep dropdown value in sync without retriggering onValueChanged
@@ -112,124 +104,8 @@ public class BGMDropdown : MonoBehaviour
             dropdown.SetValueWithoutNotify(index);
         }
 
-        Debug.Log($"[BGMDropdown] Now playing track #{index}: {clip.name}");
+        Debug.Log($"[BGMPlaylistUI] Now playing track #{index}");
     }
-
-    private int GetRandomTrackIndex()
-    {
-        if (mTracks == null || mTracks.Length == 0) 
-        {
-            return 0;
-        }
-        return Random.Range(0, mTracks.Length);
-    }
-    #endregion
-
-    #region Play/Pause/Next/Prev Buttons
-    public void OnPlayPauseClicked() 
-    {
-        if (mTracks == null || mTracks.Length == 0)
-        {
-            Debug.Log("[BGMDropdown] No track to play");
-            return;
-        }
-
-        // nothing has been selected yet, start at 0
-        if (mCurrIndex < 0 || mCurrIndex >= mTracks.Length)
-        {
-            PlayTrack(0); 
-            return;
-        }
-
-        if (mSource == null || mSource.clip == null)
-        { 
-            return; 
-        }
-
-        // pause curr playing track
-        if (mSource.isPlaying)
-        {
-            mSource.Pause();
-            mIsPaused = true;
-        }
-        else
-        {
-            // resume if it was paused, otherwise just play
-            if (mIsPaused)
-            {
-                mSource.UnPause();
-            }
-            else
-            {
-                mSource.Play();
-            }
-
-            mIsPaused = false;
-        }
-    }
-
-    public void OnNextClicked()
-    {
-        if (mTracks == null || mTracks.Length == 0)
-        {
-            Debug.Log("[BGMDropdown] No track to play");
-            return;
-        }
-   
-        int nextIndex;
-        if (mCurrIndex < 0) 
-        {
-            // nothing is playing, play the first track
-            nextIndex = 0;
-        }
-        else
-        {
-            nextIndex = (mCurrIndex + 1) % mTracks.Length;  // if last track, then play first track
-        }
-
-        PlayTrack(nextIndex);
-    }
-
-    public void OnPrevClicked()
-    {
-        if (mTracks == null || mTracks.Length == 0)
-        {
-            Debug.Log("[BGMDropdown] No track to play");
-            return;
-        }
-
-        int prevIndex;
-        if (mCurrIndex < 0)
-        {
-            // nothing is playing, play the first track
-            prevIndex = 0;
-        }
-        else
-        {
-            prevIndex = (mCurrIndex - 1 + mTracks.Length) % mTracks.Length; // if first track, play last track
-        }
-
-        PlayTrack(prevIndex);
-    }
-
-    public void OnStopClicked()
-    {
-        if (mTracks == null || mTracks.Length == 0)
-        {
-            Debug.Log("[BGMDropdown] No track to play");
-            return;
-        }
-
-        if (mCurrIndex < 0 || mCurrIndex >= mTracks.Length)
-        {
-            return;
-        }
-
-        mSource.Stop();
-        mIsPaused = false;
-    }
-    #endregion
-
 }
 
 

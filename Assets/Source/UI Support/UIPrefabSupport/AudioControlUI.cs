@@ -7,8 +7,8 @@ public partial class AudioControlUI : MonoBehaviour
 {
     public AudioMixer mainMixer;
     public string masterParam = "MasterVolume";
-    public string musicParam  = "BGMVolume";
-    public string sfxParam    = "EffectsVolume";
+    public string musicParam = "BGMVolume";
+    public string sfxParam = "EffectsVolume";
 
     public SliderWithEcho masterSlider;         // MasterSlider object
     public SliderWithEcho musicSlider;          // BGMSlider object
@@ -16,10 +16,10 @@ public partial class AudioControlUI : MonoBehaviour
 
     public Key muteKey = Key.M;
     private bool isMuted = false;
-    private float lastMasterPercent = 80f;      // default: 50%
+    private float lastMasterPercent = 80f;      // default: 80%
 
     private const float k_MinLinear = 0.0001f;  // avoid log10(0), bad for mathing
-    private const float k_MutedDb   = -80f;     // typical "off" value
+    private const float k_MutedDb = -80f;       // typical "off" value
 
     private void Awake()
     {
@@ -29,26 +29,30 @@ public partial class AudioControlUI : MonoBehaviour
         if (masterSlider != null)
         {
             masterSlider.SetSliderLabel("Master Volume");
-            masterSlider.InitSliderRange(0f, 100f, 50f);    // default 50%
+            masterSlider.InitSliderRange(0f, 100f, 80f);    // default 80%
             masterSlider.SetSliderListener(OnMasterChanged);
         }
 
         if (musicSlider != null)
         {
             musicSlider.SetSliderLabel("Music Volume");
-            musicSlider.InitSliderRange(0f, 100f, 40f);
+            musicSlider.InitSliderRange(0f, 100f, 80f);
             musicSlider.SetSliderListener(OnMusicChanged);
         }
 
         if (sfxSlider != null)
         {
             sfxSlider.SetSliderLabel("Sound Effect");
-            sfxSlider.InitSliderRange(0f, 100f, 60f);
+            sfxSlider.InitSliderRange(0f, 100f, 80f);
             sfxSlider.SetSliderListener(OnSfxChanged);
         }
 
-        // apply to mixer
+        // Apply to mixer
         ApplyAllSlidersToMixer();
+    }
+
+    private void Update() 
+    {
     }
 
     #region sliders 
@@ -62,7 +66,7 @@ public partial class AudioControlUI : MonoBehaviour
             lastMasterPercent = v;   // update baseline
             SetMixerVolume(masterParam, v);
             UpdateMuteIcon();
-            Debug.Log("[AudioControlUI] Slider changed -> auto unmuted.");
+            // Debug.Log("[AudioControlUI] Slider changed -> auto unmuted.");
             return;
         }
 
