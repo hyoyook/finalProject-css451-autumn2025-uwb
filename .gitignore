@@ -100,3 +100,6 @@ InitTestScene*.unity*
 
 # Unity recovery scenes
 Assets/_Recovery/
+
+# Ignore TMP auto-generated SDF font assets
+Assets/TextMesh Pro/**/*.asset
