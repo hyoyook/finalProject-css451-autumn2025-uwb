@@ -1,3 +1,8 @@
+/*
+ * References
+ * [1] OpenAI, LLC., “Play one track at a time, update texts to show current playing track title.” 
+ *     ChatGPT, Accessed: Dec. 8, 2025.[Online]. Available: https://chat.openai.com
+*/
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.Audio;
@@ -69,7 +74,7 @@ public class BGMDropdown : MonoBehaviour
 
     #region PlayTracks
 
-    // ChatGPT: "play one track at a time, update texts to show curr playing track title" 
+    // source: OpenAI: 'Play one track at a time, update texts to show current playing track title' [1]
     private void PlayTrack(int index)
     {
         if (mTracks == null || mTracks.Length == 0)

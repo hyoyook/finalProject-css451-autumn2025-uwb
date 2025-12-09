@@ -1,3 +1,8 @@
+// Reference:
+// [1] Unity Discussions, “How do I create an exit/quit button?” 
+//     Available: https://discussions.unity.com/t/how-do-i-create-a-exit-quit-button/142125
+//     Accessed: Dec. 8, 2025.
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -96,7 +101,7 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(scene.buildIndex);
     }
 
-    // source: https://discussions.unity.com/t/how-do-i-create-a-exit-quit-button/142125
+    // source: exit button [1]
     public void CloseGame() 
     { 
         Application.Quit();

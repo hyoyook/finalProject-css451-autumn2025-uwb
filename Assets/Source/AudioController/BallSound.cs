@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*
+ * References:
+ * [1] Unity Technologies, “Sound Effects Scripting,” *Beginning Audio in Unity* tutorial. 
+ *     Available: https://learn.unity.com/course/beginning-audio-in-unity/tutorial/sound-effects-scripting-1?version=2019.4#5f4f75b6edbc2a034289e2f6
+ *     Accessed: Dec. 8, 2025.
+ * [2] OpenAI, LLC., “Almost inaudible SFX, reasonable range setting based on collision impact” 
+ *     ChatGPT, Accessed: Dec. 8, 2025. Available: https://chat.openai.com
+ */
+
+using UnityEngine;
 using UnityEngine.Audio;
 
 public class BallSound : MonoBehaviour
@@ -11,7 +20,7 @@ public class BallSound : MonoBehaviour
     public float maxVolumeForce = 20f;  // maxing here so it does not blast 
 
 
-    // source: https://learn.unity.com/course/beginning-audio-in-unity/tutorial/sound-effects-scripting-1?version=2019.4#5f4f75b6edbc2a034289e2f6
+    // source: sound effect scripting [1]
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -27,6 +36,7 @@ public class BallSound : MonoBehaviour
 
     }
 
+    // source: reasonable range setting based on impact magnitude [2]
     private void OnCollisionEnter(Collision collision)
     {
         float impact = collision.relativeVelocity.magnitude;
@@ -39,7 +49,6 @@ public class BallSound : MonoBehaviour
         }
         const float maxImpactForLoud = 3f;
 
-        // ChatGPT: almost inaudible sfx. Reasonable range setting based on collision impact
         // map impact between 0 and 1
         float t = Mathf.InverseLerp(minImpactForce, maxImpactForLoud, impact);
         t = Mathf.Clamp01(t);

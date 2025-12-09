@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * references:
+ * [1] Unity Discussions, “Change Audio Mixer volume with slider.” 
+ *     Available: https://discussions.unity.com/t/change-audio-mixer-volume-with-slider/920323/4
+ *     Accessed: Dec. 8, 2025.
+ */
+
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -56,7 +63,6 @@ public partial class AudioControlUI : MonoBehaviour
     }
 
     #region sliders 
-    // source: https://discussions.unity.com/t/change-audio-mixer-volume-with-slider/920323/4
     private void OnMasterChanged(float v)
     {
         // If slider moves while muted → unmute first
@@ -88,8 +94,6 @@ public partial class AudioControlUI : MonoBehaviour
     #endregion
 
     #region mixer helpers
-
-    // source: https://discussions.unity.com/t/change-audio-mixer-volume-with-slider/920323/4
     private void SetMixerVolume(string param, float v) 
     {
         if (mainMixer == null || string.IsNullOrEmpty(param)) 
