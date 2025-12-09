@@ -20,6 +20,12 @@ public partial class CueStickController : MonoBehaviour
     [Tooltip("The target transform to orbit around (cue ball position)")]
     public Transform CueBallTarget;
 
+    // --- NEW: AIM OFFSET ---
+    [Header("Aim Adjustment")]
+    [Tooltip("Lifts the aim point up. Set to ~0.3 for a standard cue ball to aim at the center.")]
+    public float AimVerticalOffset = 0.3f; 
+    // -----------------------
+
     [Header("Orbit Settings")]
     [Tooltip("Distance from the cue ball to orbit at")]
     public float OrbitDistance = 5.0f;
@@ -57,6 +63,22 @@ public partial class CueStickController : MonoBehaviour
 
     [Tooltip("Maximum cue yaw angle")]
     public float MaxCueYaw = 45.0f;
+
+    [Header("Camera System")]
+    public Camera MainOverheadCamera; // Drag your Top-Down Camera here
+    public Camera CueFpsCamera;       // Drag your POV Camera here
+
+    [Header("POV Camera Settings")]
+    [Tooltip("If TRUE, camera stares at the ball. If FALSE, uses manual rotation.")]
+    public bool LockCameraToBall = true; 
+
+    [Tooltip("Position relative to the stick. (-0.5f, 0.5f, 0) sits in front.")]
+    public Vector3 FpsPositionOffset = new Vector3(-0.5f, 0.5f, 0); 
+
+    [Tooltip("Only used if 'Lock Camera To Ball' is unchecked.")]
+    public Vector3 FpsRotationOffset = new Vector3(11, -90, 0);
+
+    private bool isFpsMode = false;   // False = Overhead, True = POV
 
     // Current orbit angles
     private float currentYaw = 0.0f;
@@ -139,6 +161,19 @@ public partial class CueStickController : MonoBehaviour
             HandleOrbitInput();
         }
 
+        // Input: Press 'V' to toggle cameras
+        if (Keyboard.current != null && Keyboard.current.vKey.wasPressedThisFrame)
+        {
+            isFpsMode = !isFpsMode;
+            SetCameraMode(isFpsMode);
+        }
+
+        // 2. LOGIC: Make the POV Camera stick to the Cue Stick
+        UpdateCameraFollow();
+
+        // Ensure the mode stays enforced (prevents other scripts from overriding it)
+        SetCameraMode(isFpsMode);
+
         // Update the cue stick position and rotation
         UpdateCuePosition();
 
@@ -153,6 +188,55 @@ public partial class CueStickController : MonoBehaviour
         
         // Update shot system (from partial class)
         UpdateShot();
+    }
+
+    /// <summary>
+    /// Snaps the POV Camera to the Cue Stick's position and rotation
+    /// </summary>
+    private void UpdateCameraFollow()
+    {
+        // Only update if we are actually LOOKING through the POV camera
+        if (!isFpsMode || CueFpsCamera == null || CueHierarchy == null) return;
+
+        // A. Find the Object to stick to (Root or Spaceship)
+        Transform targetTransform = CueHierarchy.transform;
+        
+        // Optional: Stick to the "Deepest Node" (the spaceship mesh) if it exists
+        SceneNode deepNode = GetDeepestNode();
+        if (deepNode != null) targetTransform = deepNode.transform;
+
+        // B. POSITION: Stick it to the object + Offset
+        // TransformPoint converts local offset (0, 0.5, -0.5) to World Position
+        Vector3 targetPos = targetTransform.TransformPoint(FpsPositionOffset);
+        CueFpsCamera.transform.position = targetPos;
+
+        // C. ROTATION: Look at Ball OR Match Stick Rotation
+        if (LockCameraToBall && CueBallTarget != null)
+        {
+            // Look slightly above the ball so it feels like a head/eyes
+            Vector3 lookTarget = CueBallTarget.position + (Vector3.up * AimVerticalOffset);
+            CueFpsCamera.transform.LookAt(lookTarget);
+        }
+        else
+        {
+            // Manual Rotation: Stick Rotation + Custom Offset
+            Quaternion offsetRot = Quaternion.Euler(FpsRotationOffset);
+            CueFpsCamera.transform.rotation = targetTransform.rotation * offsetRot;
+        }
+    }
+
+    /// <summary>
+    /// Handles the actual switching on/off of the cameras
+    /// </summary>
+    private void SetCameraMode(bool fpsActive)
+    {
+        // 1. Turn the cameras on/off
+        if (MainOverheadCamera != null) MainOverheadCamera.enabled = !fpsActive;
+        if (CueFpsCamera != null) CueFpsCamera.enabled = fpsActive;
+
+        // 2. CRITICAL: Update the RaycastCamera for clicking objects
+        // If we don't do this, you can't select the chalk/ball in POV mode!
+        RaycastCamera = fpsActive ? CueFpsCamera : MainOverheadCamera;
     }
 
     /// <summary>
@@ -291,12 +375,16 @@ public partial class CueStickController : MonoBehaviour
         float z = OrbitDistance * Mathf.Cos(pitchRad) * Mathf.Cos(yawRad);
 
         Vector3 offset = new Vector3(x, y, z);
-        Vector3 targetPos = CueBallTarget.position;
+        
+        // --- AIM OFFSET LOGIC ---
+        // Calculate target point: Ball Position + Vertical Offset
+        // This effectively lifts the "pivot" of the orbit to the center of the ball
+        Vector3 targetPos = CueBallTarget.position + (Vector3.up * AimVerticalOffset);
 
         // Set the cue stick root position
         CueHierarchy.transform.position = targetPos + offset;
 
-        // Calculate the direction to the cue ball
+        // Calculate the direction to the adjusted target
         Vector3 directionToTarget = (targetPos - CueHierarchy.transform.position).normalized;
 
         // We want -right (negative X) to point at the ball
